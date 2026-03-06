@@ -10,8 +10,9 @@
     <meta name="description"
         content="Print, Design & Signage Company — printing, large-format signage, branding, vehicle wraps, banners, and more." />
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- AOS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> -->
 
      <!-- Google Fonts: preconnect + load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,13 +61,14 @@
     <header>
         <div class="nav-wrap">
             <div class="brand">
-                <!-- <div class="logo" aria-hidden="true">
-                    <img src="images/printdesign.jpg"
+                <div class="logo" aria-hidden="true">
+                    <img src="images/printer.png"
                             loading="lazy" decoding="async" width="45" height="45"
                             alt="Retail facade signage example">
-                </div> -->
+                </div>
                 <div>
-                    <div style="font-size:18px;font-weight:800">Brandedgift Prints</div>
+                    <div style="font-size:18px;font-weight:800">BRANDEDGIFT PRINTS</div>
+                    <!-- <div style="font-size:11px;color:var(--muted);font-weight:600">Print • Design • Signs</div> -->
                 </div>
             </div>
 
@@ -280,6 +282,48 @@
                         </div>
                     </div>
                 </article>
+            </div>
+
+             <!-- NEW: Other Services tag section (below the main service cards) -->
+            <div class="service-tags" aria-labelledby="other-services-title" data-aos="fade-up" data-aos-duration="800" data-aos-delay="120">
+                <h3 id="other-services-title">Other services</h3>
+                <p style="margin:0 0 12px;color:var(--muted);font-size:14px">Additional treatments we offer.</p>
+
+                <div class="tags" role="list" aria-label="Additional services list" id="serviceTagsList">
+                    <span class="tag" role="listitem" tabindex="0">Business Cards</span>
+                    <span class="tag" role="listitem" tabindex="0">Letterheads</span>
+                    <span class="tag" role="listitem" tabindex="0">Envelopes</span>
+                    <span class="tag" role="listitem" tabindex="0">Brochures</span>
+                    <span class="tag" role="listitem" tabindex="0">Flyers</span>
+                    <span class="tag" role="listitem" tabindex="0">Posters</span>
+                    <span class="tag" role="listitem" tabindex="0">Banners</span>
+                    <span class="tag" role="listitem" tabindex="0">Signage</span>
+                    <span class="tag" role="listitem" tabindex="0">Vehicle Wraps</span>
+                    <span class="tag" role="listitem" tabindex="0">Stickers &amp; Labels</span>
+                    <span class="tag" role="listitem" tabindex="0">Packaging Design</span>
+                    <span class="tag" role="listitem" tabindex="0">Product Mockups</span>
+                    <span class="tag" role="listitem" tabindex="0">Logo Design</span>
+                    <span class="tag" role="listitem" tabindex="0">Brand Identity</span>
+                    <span class="tag" role="listitem" tabindex="0">Social Media Graphics</span>
+                    <span class="tag" role="listitem" tabindex="0">Presentation Design</span>
+                    <span class="tag" role="listitem" tabindex="0">Invitations</span>
+                    <span class="tag" role="listitem" tabindex="0">Wedding Stationery</span>
+                    <span class="tag" role="listitem" tabindex="0">Promotional Merchandise</span>
+                    <span class="tag" role="listitem" tabindex="0">Heat Transfer</span>
+                    <span class="tag" role="listitem" tabindex="0">Embroidery</span>
+                    <span class="tag" role="listitem" tabindex="0">Offset Printing</span>
+                    <span class="tag" role="listitem" tabindex="0">Digital Printing</span>
+                    <span class="tag" role="listitem" tabindex="0">Large Format Printing</span>
+                    <span class="tag" role="listitem" tabindex="0">Booklets &amp; Catalogs</span>
+                    <span class="tag" role="listitem" tabindex="0">Menu Design</span>
+                    <span class="tag" role="listitem" tabindex="0">POS Displays</span>
+                    <span class="tag" role="listitem" tabindex="0">Vinyl Decals</span>
+                    <span class="tag" role="listitem" tabindex="0">Trade Show Booth Graphics</span>
+                    <span class="tag" role="listitem" tabindex="0">Custom Wallpapers</span>
+                </div>
+
+                <!-- Toggle button inserted dynamically by JS when there are more tags than the max -->
+                <div id="tagsToggleWrapper" aria-hidden="true"></div>
             </div>
         </section>
 
@@ -566,9 +610,9 @@
         </footer>
     </main>
     
-    <script>
+    <!-- <script>
         AOS.init();
-    </script>
+    </script> -->
     <script src="index.js"></script>
 </body>
 

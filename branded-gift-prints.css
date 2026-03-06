@@ -18,7 +18,8 @@
 }
 
 html {
-    scroll-behavior: smooth
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-height) + 15px);
 }
 
 body {
@@ -381,6 +382,95 @@ p.lead {
     color: var(--muted);
     font-weight: 600;
     font-size: 13px
+}
+
+/* NEW: Other services tag list */
+.service-tags {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #fff, #fff9fb);
+    border: 1px solid rgba(123, 45, 109, 0.04);
+    box-shadow: 0 8px 24px rgba(18, 24, 33, 0.03);
+}
+
+.service-tags h3 {
+    /* margin: 0 0 12px 0; */
+    margin: 0;
+    font-size: 22px;
+    font-family: var(--font-heading);
+    /* color: var(--accent); */
+}
+
+.tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(123, 45, 109, 0.06), rgba(246, 198, 216, 0.04));
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid rgba(123, 45, 109, 0.06);
+    cursor: default;
+    user-select: none;
+    transition: transform .14s ease, box-shadow .14s ease;
+    white-space: nowrap;
+}
+
+.tag:focus {
+    outline: none;
+    box-shadow: 0 6px 18px rgba(123, 45, 109, 0.12);
+    transform: translateY(-3px);
+}
+
+.tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(123, 45, 109, 0.08);
+}
+
+/* hidden class for collapsed tags */
+.tag.hidden {
+    display: none !important;
+}
+
+/* toggle button */
+.tags-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: transparent;
+    border: 1px solid rgba(123, 45, 109, 0.08);
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--accent);
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.tags-toggle:focus {
+    outline: none;
+    box-shadow: 0 6px 18px rgba(123, 45, 109, 0.12);
+}
+
+/* tiny secondary text for tag counts (optional) */
+.tag small {
+    display: inline-block;
+    font-weight: 600;
+    color: rgba(15, 23, 42, 0.6);
+    font-size: 12px;
+    margin-left: 4px;
 }
 
 @media (min-width:900px) {

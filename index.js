@@ -25,6 +25,9 @@
         mobileMenu.classList.toggle('open', isOpen);
         mobileMenu.setAttribute('aria-hidden', String(!isOpen));
         menuBtn.setAttribute('aria-expanded', String(isOpen));
+        // swap icon
+        menuBtn.textContent = isOpen ? '✕' : '☰';
+        // trap body scroll when open
         document.body.style.overflow = isOpen ? 'hidden' : '';
     }
 
@@ -226,4 +229,78 @@
 
     // keyboard focus hint for accessibility
     document.addEventListener('keydown', (e) => { if (e.key === 'Tab') document.body.classList.add('show-focus-styles'); });
+
+    // ===== NEW: Show more / Show less for tags =====
+    (function initTagsToggle() {
+        const MAX_VISIBLE = 18; // number of tags visible by default
+        const tagsContainer = document.getElementById('serviceTagsList');
+        const toggleWrapper = document.getElementById('tagsToggleWrapper');
+        if (!tagsContainer || !toggleWrapper) return;
+        const tags = Array.from(tagsContainer.querySelectorAll('.tag'));
+        if (tags.length <= MAX_VISIBLE) {
+            // nothing to do; ensure wrapper hidden for accessibility
+            toggleWrapper.setAttribute('aria-hidden', 'true');
+            return;
+        }
+
+        // hide tags beyond MAX_VISIBLE
+        const hiddenTags = tags.slice(MAX_VISIBLE);
+        hiddenTags.forEach(t => {
+            t.classList.add('hidden');
+            t.setAttribute('aria-hidden', 'true');
+            t.setAttribute('data-hidden-by-toggle', 'true');
+            // remove from tab order when hidden
+            t.setAttribute('tabindex', '-1');
+        });
+
+        // create toggle button
+        const hiddenCount = hiddenTags.length;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'tags-toggle';
+        btn.id = 'toggleTagsBtn';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-controls', 'serviceTagsList');
+        btn.textContent = `Show more (${hiddenCount})`;
+
+        // insert button into wrapper and make it visible to screen readers
+        toggleWrapper.appendChild(btn);
+        toggleWrapper.setAttribute('aria-hidden', 'false');
+
+        // Toggle handler
+        let expanded = false;
+        btn.addEventListener('click', () => {
+            expanded = !expanded;
+            btn.setAttribute('aria-expanded', String(expanded));
+            if (expanded) {
+                // show hidden tags
+                hiddenTags.forEach(t => {
+                    t.classList.remove('hidden');
+                    t.removeAttribute('aria-hidden');
+                    // restore keyboard focusability
+                    t.setAttribute('tabindex', '0');
+                });
+                btn.textContent = 'Show less';
+            } else {
+                // hide again
+                hiddenTags.forEach(t => {
+                    t.classList.add('hidden');
+                    t.setAttribute('aria-hidden', 'true');
+                    t.setAttribute('tabindex', '-1');
+                });
+                btn.textContent = `Show more (${hiddenCount})`;
+                // move focus back to the button after collapse for accessibility
+                btn.focus();
+            }
+        });
+
+        // allow keyboard users to toggle with Enter/Space
+        btn.addEventListener('keydown', (e) => {
+            if (e.key === ' ' || e.key === 'Enter') {
+                e.preventDefault();
+                btn.click();
+            }
+        });
+    })();
+    // ===== end tags toggle =====
 })();
