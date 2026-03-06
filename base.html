@@ -1,0 +1,1550 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Print, Design & Signage Co. — Modern Solutions</title>
+    <meta name="description"
+        content="Print, Design & Signage Company — printing, large-format signage, branding, vehicle wraps, banners, and more." />
+
+    <!-- SEO / Social -->
+    <link rel="canonical" href="https://your-site.example/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Print, Design & Signage Co. — Modern Solutions" />
+    <meta property="og:description"
+        content="We design, print and install signage, vehicle wraps, banners, posters and full brand identities. Fast turnaround and professional installs." />
+    <meta property="og:image" content="https://picsum.photos/id/1011/1200/630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Print, Design & Signage Co. — Modern Solutions" />
+    <meta name="twitter:description"
+        content="We design, print and install signage, vehicle wraps, banners, posters and full brand identities." />
+    <meta name="twitter:image" content="https://picsum.photos/id/1011/1200/630" />
+
+    <!-- JSON-LD LocalBusiness -->
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Print, Design & Signage Co.",
+    "description": "Design, print and install signage, vehicle wraps, banners and brand identities.",
+    "telephone": "+1-234-567-890",
+    "email": "hello@printdesignco.com",
+    "url": "https://your-site.example/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Print Lane, Suite 200",
+      "addressLocality": "Cityville",
+      "addressRegion": "ST",
+      "postalCode": "12345",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/example"
+    ]
+  }
+  </script>
+
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --accent: #ff6b35;
+            --muted: #64748b;
+            --card: linear-gradient(180deg, #ffffff, #f1f5f9);
+            --radius: 16px;
+            --max-width: 1100px;
+            --nav-height: 68px;
+            color-scheme: light;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.45;
+            padding-bottom: 60px;
+        }
+
+        /* Header/Nav */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            height: var(--nav-height);
+            backdrop-filter: blur(6px);
+            background: rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-wrap {
+            width: 100%;
+            max-width: var(--max-width);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700
+        }
+
+        .logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--accent), #ffd6b8);
+            color: #fff;
+            font-weight: 800
+        }
+
+        nav {
+            margin-left: auto
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 14px;
+            align-items: center
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px
+        }
+
+        .nav-links a:hover {
+            color: #0f172a;
+            background: rgba(0, 0, 0, 0.04)
+        }
+
+        .cta {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--accent), #ff8f5b);
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none
+        }
+
+        .menu-toggle {
+            display: none;
+            background: #f1f5f9;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            color: #0f172a;
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .mobile-menu {
+            position: absolute;
+            top: var(--nav-height);
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 0 0 14px 14px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            padding: 14px;
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            animation: fadeIn 0.2s ease;
+            z-index: 70;
+        }
+
+        .mobile-menu a {
+            padding: 14px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #0f172a;
+            text-decoration: none;
+            width: 100%;
+            display: block
+        }
+
+        .mobile-menu a:hover {
+            background: #f1f5f9
+        }
+
+        .mobile-menu.open {
+            display: flex
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @media (max-width:900px) {
+            .nav-links {
+                display: none
+            }
+
+            .menu-toggle {
+                display: inline-flex
+            }
+        }
+
+        main {
+            max-width: var(--max-width);
+            margin: 28px auto;
+            padding: 0 20px
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 60vh;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            align-items: center
+        }
+
+        .hero-card {
+            background: var(--card);
+            padding: 36px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 13px
+        }
+
+        h1 {
+            font-size: clamp(28px, 4vw, 44px);
+            margin: 8px 0 12px
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 0 0 18px
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 12px
+        }
+
+        .hero-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .sample-card {
+            border-radius: 12px;
+            padding: 16px;
+            background: #ffffff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .sample-thumb {
+            width: 88px;
+            height: 64px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            display: grid;
+            place-items: center;
+            color: #475569;
+            font-weight: 700
+        }
+
+        /* SERVICES */
+        .service-list {
+            margin-top: 44px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), #fbfdff);
+            border-radius: 14px;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            box-shadow: 0 10px 30px rgba(14, 20, 30, 0.06);
+            overflow: hidden;
+            transition: transform .22s cubic-bezier(.2, .9, .2, 1), box-shadow .22s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 22px 44px rgba(14, 20, 30, 0.10)
+        }
+
+        .svc-image {
+            width: 100%;
+            height: 220px;
+            flex: 0 0 auto;
+            display: block;
+            background: #e6eef6;
+            overflow: hidden
+        }
+
+        .svc-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .svc-content {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: left
+        }
+
+        .svc-title-badge {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: flex-start
+        }
+
+        .svc-title-badge h3 {
+            margin: 0;
+            font-size: 16px
+        }
+
+        .badge {
+            display: inline-block;
+            align-self: flex-start;
+            background: rgba(255, 107, 53, 0.08);
+            color: var(--accent);
+            padding: 6px 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 12px;
+            white-space: nowrap
+        }
+
+        .svc-copy {
+            margin: 0;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .svc-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 6px;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .svc-cta {
+            background: linear-gradient(90deg, var(--accent), #ff8f5b);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 6px 18px rgba(255, 107, 53, 0.12)
+        }
+
+        .svc-meta {
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 13px
+        }
+
+        @media (min-width:900px) {
+            .service-item {
+                flex-direction: row;
+                align-items: center
+            }
+
+            .svc-image {
+                flex: 0 0 44%;
+                height: auto;
+                min-height: 260px
+            }
+
+            .svc-content {
+                flex: 1;
+                padding: 24px 32px;
+                align-self: center;
+                max-width: 680px
+            }
+
+            .service-item:nth-child(odd) {
+                flex-direction: row-reverse
+            }
+
+            .service-item {
+                background: transparent;
+                border: none;
+                box-shadow: none
+            }
+
+            .service-item:hover {
+                transform: none;
+                box-shadow: none
+            }
+        }
+
+        @media (max-width:520px) {
+            .svc-image {
+                height: 180px
+            }
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px
+        }
+
+        .project {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 120px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 0;
+            background: #e9eef6
+        }
+
+        .project .proj-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            /* vertical-align: middle; */
+            transition: transform .28s ease
+        }
+
+        .project:hover .proj-img {
+            transform: scale(1.03)
+        }
+
+        /* sticky overlay label on image */
+        .project .label {
+            position: absolute;
+            left: 12px;
+            bottom: 12px;
+            z-index: 3;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.82));
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.08);
+            color: #0f172a;
+        }
+
+        /* subtle dark gradient to improve contrast for label */
+        .project::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.0) 40%, rgba(0, 0, 0, 0.18) 100%);
+            pointer-events: none;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 120;
+            padding: 28px
+        }
+
+        .lightbox.open {
+            display: flex
+        }
+
+        .lightbox-content {
+            max-width: 1200px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 18px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(2, 6, 23, 0.45)
+        }
+
+        .lb-img {
+            width: 100%;
+            height: 60vh;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center
+        }
+
+        .lb-meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 12px;
+            align-items: center
+        }
+
+        .lb-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            padding: 0;
+            border: 0;
+            cursor: pointer;
+            color: #0f172a;
+            z-index: 130
+        }
+
+        .lb-close svg {
+            width: 14px;
+            height: 14px;
+            display: block;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .lb-nav {
+            display: flex;
+            gap: 8px
+        }
+
+        .lb-nav .icon-btn {
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(2, 6, 23, 0.12);
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            padding: 0;
+            border: 0;
+            cursor: pointer;
+            color: #0f172a;
+            z-index: 130
+        }
+
+        .lb-nav .icon-btn svg {
+            width: 18px;
+            height: 18px;
+            display: block;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        /* Testimonials */
+        .testimonials {
+            margin-top: 44px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #ffffff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        .test-slider {
+            display: flex;
+            gap: 12px;
+            overflow: hidden;
+            padding-bottom: 6px
+        }
+
+        .test-card {
+            min-width: 260px;
+            padding: 16px;
+            border-radius: 10px;
+            background: #f8fafc
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 6px
+        }
+
+        .test-nav {
+            position: absolute;
+            right: 12px;
+            bottom: 12px;
+            display: flex;
+            gap: 8px
+        }
+
+        .test-nav .icon-btn {
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            padding: 0;
+            border: 0;
+            cursor: pointer;
+            color: #0f172a
+        }
+
+        .test-nav .icon-btn svg {
+            width: 18px;
+            height: 18px;
+            display: block;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        /* Locations */
+        .locations {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px
+        }
+
+        .map-card {
+            border-radius: 12px;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            box-shadow: 0 10px 30px rgba(14, 20, 30, 0.06);
+            display: flex;
+            flex-direction: column
+        }
+
+        .map-inner {
+            display: flex;
+            flex-direction: column
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 260px;
+            border: 0;
+            display: block
+        }
+
+        .map-body {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .map-body strong {
+            font-weight: 700
+        }
+
+        .map-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700
+        }
+
+        .map-note {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 6px
+        }
+
+        @media(min-width:900px) {
+            .map-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .map-frame {
+                height: 300px
+            }
+
+            .map-card {
+                background: transparent;
+                border: none;
+                box-shadow: none
+            }
+        }
+
+        /* Contact cards & form */
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 18px;
+            margin-top: 24px
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 12px
+        }
+
+        .contact-method {
+            background: linear-gradient(180deg, #ffffff, #fbfdff);
+            padding: 16px;
+            border-radius: 14px;
+            box-shadow: 0 8px 24px rgba(18, 24, 33, 0.06);
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            transition: transform .22s cubic-bezier(.2, .9, .2, 1), box-shadow .22s;
+            border: 1px solid rgba(15, 23, 42, 0.03);
+            text-decoration: none;
+            color: inherit
+        }
+
+        .contact-method:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08)
+        }
+
+        .contact-method .icon-img {
+            width: 56px;
+            height: 56px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex: 0 0 56px;
+            background: linear-gradient(135deg, #fff, #f7f9fb);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.04)
+        }
+
+        .contact-body {
+            display: flex;
+            flex-direction: column;
+            gap: 6px
+        }
+
+        .contact-method h3 {
+            margin: 0;
+            font-size: 15px;
+            color: #0f172a;
+            font-weight: 700
+        }
+
+        .contact-method .contact-link {
+            display: inline-block;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none
+        }
+
+        .contact-method .contact-link:hover {
+            color: #0f172a;
+            text-decoration: none
+        }
+
+        .contact-card {
+            padding: 18px;
+            border-radius: 12px;
+            background: #ffffff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06)
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 36px;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        @media (max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .svc-image {
+                height: 200px
+            }
+
+            .contact {
+                grid-template-columns: 1fr
+            }
+
+            .hero-card {
+                padding: 20px
+            }
+
+            .lb-img {
+                height: 50vh
+            }
+
+            .test-nav {
+                right: 10px;
+                bottom: 10px
+            }
+
+            .contact-cards {
+                grid-template-columns: 1fr
+            }
+
+            .map-frame {
+                height: 220px
+            }
+
+            .map-grid {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-wrap">
+            <div class="brand">
+                <div class="logo" aria-hidden="true">P</div>
+                <div>
+                    <div style="font-size:16px;font-weight:800">Print, Design & Signage Co.</div>
+                </div>
+            </div>
+
+            <nav>
+                <div class="nav-links" role="navigation" aria-label="Main navigation">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Open menu" title="Menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="home" class="hero" aria-labelledby="home-title">
+            <div class="hero-card">
+                <div class="eyebrow">Print • Design • Signs</div>
+                <h1 id="home-title">Stand out with bold, high-quality print & signage</h1>
+                <p class="lead">We design, print and install signage, vehicle wraps, banners, posters and full brand
+                    identities for businesses of all sizes. Fast turnaround, professional installs.</p>
+                <div class="hero-ctas">
+                    <a class="cta" href="#contact">Get a Quote</a>
+                    <a class="cta" href="#portfolio"
+                        style="background:transparent;color:var(--accent);border:1px solid rgba(255,255,255,0.05)">View
+                        Portfolio</a>
+                </div>
+
+                <div style="margin-top:20px;color:var(--muted);font-size:14px">Trusted by local businesses, retailers &
+                    event teams.</div>
+            </div>
+
+            <aside class="hero-preview" aria-hidden="true">
+                <div class="sample-card">
+                    <div class="sample-thumb">SG</div>
+                    <div>
+                        <div style="font-weight:700">Signage — Retail Facade</div>
+                        <div style="color:var(--muted);font-size:13px">Durable, weather resistant aluminium composite
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sample-card">
+                    <div class="sample-thumb">VW</div>
+                    <div>
+                        <div style="font-weight:700">Vehicle Wrap</div>
+                        <div style="color:var(--muted);font-size:13px">Full-wrap with UV laminate</div>
+                    </div>
+                </div>
+
+                <div class="sample-card">
+                    <div class="sample-thumb">ST</div>
+                    <div>
+                        <div style="font-weight:700">Store Displays</div>
+                        <div style="color:var(--muted);font-size:13px">Point-of-sale & window graphics</div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" aria-labelledby="services-title">
+            <h2 id="services-title">Services</h2>
+
+            <div class="service-list" role="list">
+                <article class="service-item" role="listitem" aria-labelledby="svc1-title">
+                    <div class="svc-image" aria-hidden="true">
+                        <!-- responsive image -->
+                        <img src="https://picsum.photos/id/1011/800/540" srcset="https://picsum.photos/id/1011/480/320 480w,
+                      https://picsum.photos/id/1011/800/540 800w,
+                      https://picsum.photos/id/1011/1200/800 1200w" sizes="(max-width: 900px) 100vw, 44vw"
+                            loading="lazy" decoding="async" width="1200" height="800"
+                            alt="Retail facade signage example">
+                    </div>
+
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc1-title">Large-format Printing</h3>
+                            <div class="badge">Fast turnaround</div>
+                        </div>
+
+                        <p class="svc-copy">Billboards, banners, posters and exhibition prints in vibrant colors and
+                            durable materials.</p>
+
+                        <div class="svc-foot">
+                            <a class="svc-cta" href="#contact">Get a quote</a>
+                            <div class="svc-meta">From 24 hrs</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-item" role="listitem" aria-labelledby="svc2-title">
+                    <div class="svc-image" aria-hidden="true">
+                        <img src="https://picsum.photos/id/1025/800/540" srcset="https://picsum.photos/id/1025/480/320 480w,
+                      https://picsum.photos/id/1025/800/540 800w,
+                      https://picsum.photos/id/1025/1200/800 1200w" sizes="(max-width: 900px) 100vw, 44vw"
+                            loading="lazy" decoding="async" width="1200" height="800" alt="Conference backdrop example">
+                    </div>
+
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc2-title">Signage & Facades</h3>
+                            <div class="badge">Installation available</div>
+                        </div>
+
+                        <p class="svc-copy">Custom storefront signs, illuminated signs, channel letters and wayfinding
+                            systems.</p>
+
+                        <div class="svc-foot">
+                            <a class="svc-cta" href="#contact">Request site survey</a>
+                            <div class="svc-meta">On-site quotes</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-item" role="listitem" aria-labelledby="svc3-title">
+                    <div class="svc-image" aria-hidden="true">
+                        <img src="https://picsum.photos/id/1035/800/540" srcset="https://picsum.photos/id/1035/480/320 480w,
+                      https://picsum.photos/id/1035/800/540 800w,
+                      https://picsum.photos/id/1035/1200/800 1200w" sizes="(max-width: 900px) 100vw, 44vw"
+                            loading="lazy" decoding="async" width="1200" height="800" alt="Vehicle wrap example">
+                    </div>
+
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc3-title">Vehicle Wraps</h3>
+                            <div class="badge">UV laminate</div>
+                        </div>
+
+                        <p class="svc-copy">Partial & full vehicle wraps with protective laminates for long-lasting
+                            results.</p>
+
+                        <div class="svc-foot">
+                            <a class="svc-cta" href="#contact">Get wrapped</a>
+                            <div class="svc-meta">Fleet discounts</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-item" role="listitem" aria-labelledby="svc4-title">
+                    <div class="svc-image" aria-hidden="true">
+                        <img src="https://picsum.photos/id/1043/800/540" srcset="https://picsum.photos/id/1043/480/320 480w,
+                      https://picsum.photos/id/1043/800/540 800w,
+                      https://picsum.photos/id/1043/1200/800 1200w" sizes="(max-width: 900px) 100vw, 44vw"
+                            loading="lazy" decoding="async" width="1200" height="800"
+                            alt="Branding and identity example">
+                    </div>
+
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc4-title">Branding & Design</h3>
+                            <div class="badge">Full identity</div>
+                        </div>
+
+                        <p class="svc-copy">Logo design, brand guidelines, marketing collateral and layout for print &
+                            web.</p>
+
+                        <div class="svc-foot">
+                            <a class="svc-cta" href="#contact">Start a project</a>
+                            <div class="svc-meta">Packages available</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-item" role="listitem" aria-labelledby="svc5-title">
+                    <div class="svc-image" aria-hidden="true">
+                        <img src="https://picsum.photos/id/1050/800/540" srcset="https://picsum.photos/id/1050/480/320 480w,
+                      https://picsum.photos/id/1050/800/540 800w,
+                      https://picsum.photos/id/1050/1200/800 1200w" sizes="(max-width: 900px) 100vw, 44vw"
+                            loading="lazy" decoding="async" width="1200" height="800"
+                            alt="Window & floor graphics example">
+                    </div>
+
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc5-title">Window & Floor Graphics</h3>
+                            <div class="badge">Removable options</div>
+                        </div>
+
+                        <p class="svc-copy">Shopfront vinyls, frosted glass effects, removable promos and directional
+                            floor decals.</p>
+
+                        <div class="svc-foot">
+                            <a class="svc-cta" href="#contact">Order samples</a>
+                            <div class="svc-meta">Short runs OK</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-item" role="listitem" aria-labelledby="svc6-title">
+                    <div class="svc-image" aria-hidden="true">
+                        <img src="https://picsum.photos/id/1067/800/540" srcset="https://picsum.photos/id/1067/480/320 480w,
+                      https://picsum.photos/id/1067/800/540 800w,
+                      https://picsum.photos/id/1067/1200/800 1200w" sizes="(max-width: 900px) 100vw, 44vw"
+                            loading="lazy" decoding="async" width="1200" height="800"
+                            alt="Installation & site survey example">
+                    </div>
+
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc6-title">Installation & Site Surveys</h3>
+                            <div class="badge">Pro installers</div>
+                        </div>
+
+                        <p class="svc-copy">Professional installation and site survey to ensure perfect fit and
+                            longevity.</p>
+
+                        <div class="svc-foot">
+                            <a class="svc-cta" href="#contact">Book a survey</a>
+                            <div class="svc-meta">Certified teams</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO -->
+        <section id="portfolio" aria-labelledby="portfolio-title" style="margin-top:30px">
+            <h2 id="portfolio-title">Portfolio</h2>
+            <p style="color:var(--muted);margin-top:6px">A selection of recent projects — click any item to view
+                details.</p>
+            <div class="portfolio-grid">
+                <div class="project" data-title="Retail Facade — Ocean Mart"
+                    data-img="url('https://picsum.photos/id/1011/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/id/1011/800/540"
+                        srcset="https://picsum.photos/id/1011/480/320 480w, https://picsum.photos/id/1011/800/540 800w, https://picsum.photos/id/1011/1200/800 1200w"
+                        sizes="(max-width:900px) 100vw, 33vw" alt="Retail Facade">
+                    <div class="label">Retail Facade</div>
+                </div>
+
+                <div class="project" data-title="Conference Backdrop — Tech Summit"
+                    data-img="url('https://picsum.photos/id/1025/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/id/1025/800/540"
+                        srcset="https://picsum.photos/id/1025/480/320 480w, https://picsum.photos/id/1025/800/540 800w, https://picsum.photos/id/1025/1200/800 1200w"
+                        sizes="(max-width:900px) 100vw, 33vw" alt="Conference Backdrop">
+                    <div class="label">Conference Backdrop</div>
+                </div>
+
+                <div class="project" data-title="Vehicle Wrap — City Courier"
+                    data-img="url('https://picsum.photos/id/1035/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/id/1035/800/540"
+                        srcset="https://picsum.photos/id/1035/480/320 480w, https://picsum.photos/id/1035/800/540 800w, https://picsum.photos/id/1035/1200/800 1200w"
+                        sizes="(max-width:900px) 100vw, 33vw" alt="Vehicle Wrap">
+                    <div class="label">Vehicle Wrap</div>
+                </div>
+
+                <div class="project" data-title="Window Display — Boutique"
+                    data-img="url('https://picsum.photos/id/1043/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/id/1043/800/540"
+                        srcset="https://picsum.photos/id/1043/480/320 480w, https://picsum.photos/id/1043/800/540 800w, https://picsum.photos/id/1043/1200/800 1200w"
+                        sizes="(max-width:900px) 100vw, 33vw" alt="Window Display">
+                    <div class="label">Window Display</div>
+                </div>
+
+                <div class="project" data-title="Event Signs — Food Fest"
+                    data-img="url('https://picsum.photos/id/1050/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/id/1050/800/540"
+                        srcset="https://picsum.photos/id/1050/480/320 480w, https://picsum.photos/id/1050/800/540 800w, https://picsum.photos/id/1050/1200/800 1200w"
+                        sizes="(max-width:900px) 100vw, 33vw" alt="Event Signs">
+                    <div class="label">Event Signs</div>
+                </div>
+
+                <div class="project" data-title="Exhibit Booth — Startup Expo"
+                    data-img="url('https://picsum.photos/id/1067/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/id/1067/800/540"
+                        srcset="https://picsum.photos/id/1067/480/320 480w, https://picsum.photos/id/1067/800/540 800w, https://picsum.photos/id/1067/1200/800 1200w"
+                        sizes="(max-width:900px) 100vw, 33vw" alt="Exhibit Booth">
+                    <div class="label">Exhibit Booth</div>
+                </div>
+
+                <div class="project" data-title="Poster Series — Campaign"
+                    data-img="url('https://picsum.photos/id/1074/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/id/1074/800/540"
+                        srcset="https://picsum.photos/id/1074/480/320 480w, https://picsum.photos/id/1074/800/540 800w, https://picsum.photos/id/1074/1200/800 1200w"
+                        sizes="(max-width:900px) 100vw, 33vw" alt="Poster Series">
+                    <div class="label">Poster Series</div>
+                </div>
+
+                <div class="project" data-title="Floor Graphics — Mall"
+                    data-img="url('https://picsum.photos/id/1084/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/id/1084/800/540"
+                        srcset="https://picsum.photos/id/1084/480/320 480w, https://picsum.photos/id/1084/800/540 800w, https://picsum.photos/id/1084/1200/800 1200w"
+                        sizes="(max-width:900px) 100vw, 33vw" alt="Floor Graphics">
+                    <div class="label">Floor Graphics</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX -->
+        <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Project preview">
+            <div class="lightbox-content" role="document">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div style="font-weight:700" id="lb-title">Project</div>
+                </div>
+
+                <button class="lb-close" id="lb-close" aria-label="Close">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+
+                <div class="lb-img" id="lb-img"
+                    style="margin-top:12px;background-size:cover;background-position:center"></div>
+
+                <div class="lb-meta">
+                    <div style="color:var(--muted);font-size:13px">High-resolution files available on request — we
+                        handle printing and install.</div>
+                    <div class="lb-nav" style="display:flex;gap:8px">
+                        <button class="icon-btn lb-nav-btn" id="prev" aria-label="Previous project"><svg
+                                viewBox="0 0 24 24">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg></button>
+                        <button class="icon-btn lb-nav-btn" id="next" aria-label="Next project"><svg
+                                viewBox="0 0 24 24">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TESTIMONIALS -->
+        <section id="testimonials" aria-labelledby="testimonials-title" style="margin-top:30px">
+            <h2 id="testimonials-title">Testimonials</h2>
+            <div class="testimonials">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                    <div style="color:var(--muted)">What clients say about our work</div>
+                    <div style="color:var(--muted);font-size:13px">Proven quality & on-time delivery</div>
+                </div>
+
+                <div class="test-slider" id="test-slider">
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <div style="font-weight:700">Excellent service — highly recommended</div>
+                        <div style="color:var(--muted);margin-top:8px">“They delivered a perfect storefront sign and
+                            handled the install quickly. Communication was great.” — <strong>Ocean Mart</strong></div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <div style="font-weight:700">Great quality & price</div>
+                        <div style="color:var(--muted);margin-top:8px">“Vehicle wrap looks amazing months later. The
+                            team was professional and punctual.” — <strong>City Courier</strong></div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars">★★★★☆</div>
+                        <div style="font-weight:700">Would hire again</div>
+                        <div style="color:var(--muted);margin-top:8px">“Fast turnaround on banners for our event.
+                            Install crew were polite.” — <strong>Food Fest</strong></div>
+                    </div>
+                </div>
+
+                <div class="test-nav" aria-hidden="false">
+                    <button class="icon-btn" id="test-prev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <button class="icon-btn" id="test-next" aria-label="Next testimonial"><svg viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATIONS (two cards) -->
+        <section id="locations" aria-labelledby="locations-title" class="locations">
+            <h2 id="locations-title">Locations</h2>
+
+            <div class="map-grid">
+                <!-- Location 1 -->
+                <div class="map-card" role="region" aria-label="Head office location">
+                    <div class="map-inner">
+                        <!-- lazy-loaded iframe: src is blank until scrolled into view -->
+                        <iframe class="map-frame" loading="lazy"
+                            data-src="https://www.google.com/maps?q=40.73061,-73.935242&z=14&output=embed"
+                            src="about:blank" title="Head Office map"></iframe>
+                        <div class="map-body">
+                            <strong>Head Office</strong>
+                            <div>123 Print Lane, Suite 200<br />Cityville, ST 12345</div>
+                            <a class="map-link"
+                                href="https://www.google.com/maps/search/?api=1&query=40.73061,-73.935242"
+                                target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                            <div class="map-note">Office hours: Mon–Fri, 9:00 — 17:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location 2 -->
+                <div class="map-card" role="region" aria-label="Warehouse and install hub location">
+                    <div class="map-inner">
+                        <iframe class="map-frame" loading="lazy"
+                            data-src="https://www.google.com/maps?q=40.72228,-73.99856&z=14&output=embed"
+                            src="about:blank" title="Warehouse map"></iframe>
+                        <div class="map-body">
+                            <strong>Warehouse / Install Hub</strong>
+                            <div>456 Install Ave<br />Cityville, ST 12345</div>
+                            <a class="map-link"
+                                href="https://www.google.com/maps/search/?api=1&query=40.72228,-73.99856"
+                                target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                            <div class="map-note">By appointment for pickups & installations</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT: keep single form in the aside -->
+        <section id="contact" aria-labelledby="contact-title" style="margin-top:28px">
+            <h2 id="contact-title">Contact</h2>
+            <div class="contact">
+                <div>
+                    <p style="color:var(--muted)">We're happy to provide a quote or answer questions about materials,
+                        lead time and installs. Choose a contact method below or use the request form to send us a
+                        message.</p>
+
+                    <div class="contact-cards" role="list">
+                        <div class="contact-method" role="listitem" aria-label="Email hello@printdesignco.com">
+                            <img class="icon-img" src="https://picsum.photos/seed/email/200" alt="email icon">
+                            <div class="contact-body">
+                                <h3>Email</h3>
+                                <a class="contact-link"
+                                    href="mailto:hello@printdesignco.com">hello@printdesignco.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method" role="listitem" aria-label="Phone +1 (234) 567-890">
+                            <img class="icon-img" src="https://picsum.photos/seed/phone/200" alt="phone icon">
+                            <div class="contact-body">
+                                <h3>Phone</h3>
+                                <a class="contact-link" href="tel:+1234567890">+1 (234) 567-890</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method" role="listitem" aria-labelledby="linkedin-contact">
+                            <img class="icon-img" src="https://picsum.photos/seed/linkedin/200" alt="linkedin icon">
+                            <div class="contact-body">
+                                <h3 id="linkedin-contact">LinkedIn</h3>
+                                <a class="contact-link" href="https://www.linkedin.com/company/example" target="_blank"
+                                    rel="noopener noreferrer">linkedin.com/company/example</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method" role="listitem" aria-labelledby="whatsapp-contact">
+                            <img class="icon-img" src="https://picsum.photos/seed/whatsapp/200" alt="whatsapp icon">
+                            <div class="contact-body">
+                                <h3 id="whatsapp-contact">WhatsApp</h3>
+                                <a class="contact-link" href="https://wa.me/1234567890" target="_blank"
+                                    rel="noopener noreferrer">Chat on WhatsApp</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ASIDE: single Request a Quote form (this is now the only form) -->
+                <aside class="contact-card" aria-labelledby="aside-quote-title">
+                    <div id="aside-quote-title" style="font-weight:700">Request a Quote</div>
+                    <div style="color:var(--muted);margin-top:8px">Tell us a bit about your project and we'll follow up
+                        with a tailored estimate.</div>
+
+                    <form id="contactForm" style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+                        <input id="name" name="name" placeholder="Your name"
+                            style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);" required>
+                        <input id="email" name="email" type="email" placeholder="Email"
+                            style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);" required>
+                        <textarea id="message" name="message" placeholder="Project details (size, quantity, deadline)"
+                            rows="4" style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);"
+                            required></textarea>
+                        <div style="display:flex;gap:10px;align-items:center">
+                            <button id="sendBtn" type="submit" class="cta">Send Request</button>
+                            <div id="sendMsg" style="color:var(--muted);font-size:13px"></div>
+                        </div>
+                    </form>
+                </aside>
+            </div>
+        </section>
+
+        <footer>
+            © <span id="year"></span> Print, Design & Signage Co. — Crafted with care.
+        </footer>
+    </main>
+
+    <script>
+        (function () {
+            // ====== Config: REPLACE with your real Formspree endpoint ======
+            // Example: const FORMSPREE_ENDPOINT = 'https://formspree.io/f/abcdxyz';
+            const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdaqpjr'; // <-- replace this
+            // =============================================================
+
+            // mobile menu
+            const menuBtn = document.querySelector('.menu-toggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (menuBtn) menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+                mobileMenu.setAttribute('aria-hidden', !mobileMenu.classList.contains('open'));
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+            }));
+
+            // ===== Portfolio lightbox (unchanged functionality) =====
+            const projects = Array.from(document.querySelectorAll('.project'));
+            const lb = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lb-img');
+            const lbTitle = document.getElementById('lb-title');
+            let currentIndex = 0;
+
+            function openLightbox(idx) {
+                const el = projects[idx];
+                if (!el) return;
+                const title = el.getAttribute('data-title') || 'Project';
+                const img = el.getAttribute('data-img') || "url('')";
+                lbTitle.textContent = title;
+                lbImg.style.backgroundImage = img;
+                lb.classList.add('open');
+                lb.setAttribute('aria-hidden', 'false');
+                currentIndex = idx;
+                document.body.style.overflow = 'hidden';
+            }
+            function closeLightbox() {
+                lb.classList.remove('open');
+                lb.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+            projects.forEach((p, i) => p.addEventListener('click', () => openLightbox(i)));
+            const lbClose = document.getElementById('lb-close');
+            if (lbClose) lbClose.addEventListener('click', closeLightbox);
+            if (lb) lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+
+            const prevBtn = document.getElementById('prev');
+            const nextBtn = document.getElementById('next');
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+                    openLightbox(currentIndex);
+                });
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % projects.length;
+                    openLightbox(currentIndex);
+                });
+            }
+            document.addEventListener('keydown', (e) => {
+                if (lb.classList.contains('open')) {
+                    if (e.key === 'Escape') closeLightbox();
+                    if (e.key === 'ArrowLeft') prevBtn && prevBtn.click();
+                    if (e.key === 'ArrowRight') nextBtn && nextBtn.click();
+                }
+            });
+
+            // ===== Testimonials manual nav (unchanged) =====
+            const slider = document.getElementById('test-slider');
+            const btnNext = document.getElementById('test-next');
+            const btnPrev = document.getElementById('test-prev');
+            let slidePos = 0;
+            function updateSlideWidth() {
+                const child = slider && slider.children[0];
+                if (!child) return 0;
+                const rect = child.getBoundingClientRect();
+                return Math.round(rect.width) + 12;
+            }
+            function scrollToSlide(pos) {
+                const width = updateSlideWidth();
+                slider && slider.scrollTo({ left: width * pos, behavior: 'smooth' });
+            }
+            if (btnNext) btnNext.addEventListener('click', () => { const count = slider.children.length; slidePos = (slidePos + 1) % count; scrollToSlide(slidePos); });
+            if (btnPrev) btnPrev.addEventListener('click', () => { const count = slider.children.length; slidePos = (slidePos - 1 + count) % count; scrollToSlide(slidePos); });
+            let scrollTimeout;
+            slider && slider.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    const width = updateSlideWidth();
+                    if (width === 0) return;
+                    const approx = Math.round(slider.scrollLeft / width);
+                    slidePos = Math.max(0, Math.min(slider.children.length - 1, approx));
+                }, 80);
+            });
+
+            // ===== Lazy-load Google iframes when they scroll into view =====
+            const lazyFrames = Array.from(document.querySelectorAll('iframe[data-src]'));
+            if ('IntersectionObserver' in window && lazyFrames.length) {
+                const io = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            const el = e.target;
+                            el.src = el.dataset.src;
+                            obs.unobserve(el);
+                        }
+                    });
+                }, { rootMargin: '300px' });
+                lazyFrames.forEach(f => io.observe(f));
+            } else {
+                // fallback: set all iframe src
+                lazyFrames.forEach(f => f.src = f.dataset.src);
+            }
+
+            // ===== Contact form wiring (Formspree + fallback) =====
+            function serializeForm(form) {
+                return new FormData(form);
+            }
+            async function submitToFormspree(form) {
+                const data = serializeForm(form);
+                try {
+                    const resp = await fetch(FORMSPREE_ENDPOINT, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (resp.ok) return { success: true };
+                    const json = await resp.json().catch(() => null);
+                    return { success: false, data: json };
+                } catch (err) {
+                    return { success: false, error: err };
+                }
+            }
+            function openMailtoFallback(name, email, message) {
+                const subject = encodeURIComponent('Quote request from ' + name);
+                const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+                window.location.href = 'mailto:hello@printdesignco.com?subject=' + subject + '&body=' + body;
+            }
+
+            async function handleFormSubmission(e, form, msgEl) {
+                e.preventDefault();
+                const name = form.querySelector('[name="name"]').value.trim();
+                const email = form.querySelector('[name="email"]').value.trim();
+                const message = form.querySelector('[name="message"]').value.trim();
+                if (!name || !email || !message) {
+                    msgEl.style.color = '';
+                    msgEl.textContent = 'Please fill name, email and message.';
+                    return;
+                }
+                msgEl.style.color = '';
+                msgEl.textContent = 'Sending...';
+
+                // If FORMSPREE_ENDPOINT is still the placeholder, fallback to mailto
+                if (FORMSPREE_ENDPOINT.includes('yourFormId') || FORMSPREE_ENDPOINT.trim() === '') {
+                    openMailtoFallback(name, email, message);
+                    msgEl.textContent = 'Opening your mail client to send request...';
+                    return;
+                }
+
+                const result = await submitToFormspree(form);
+                if (result.success) {
+                    msgEl.style.color = 'green';
+                    msgEl.textContent = 'Thanks — your message has been sent. We will reply soon.';
+                    form.reset();
+                } else {
+                    msgEl.style.color = '#a33';
+                    msgEl.textContent = 'There was an error sending your message. Opening mail client as fallback.';
+                    openMailtoFallback(name, email, message);
+                }
+            }
+
+            const contactForm = document.getElementById('contactForm');
+            const sendMsg = document.getElementById('sendMsg');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => handleFormSubmission(e, contactForm, sendMsg));
+            }
+
+            // Fill year
+            const yearEl = document.getElementById('year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            // keyboard focus hint for accessibility
+            document.addEventListener('keydown', (e) => { if (e.key === 'Tab') document.body.classList.add('show-focus-styles'); });
+        })();
+    </script>
+</body>
+
+</html>
