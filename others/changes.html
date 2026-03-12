@@ -1,0 +1,1452 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>JMAX Beauty Salon — Hair, Makeup & Skincare</title>
+    <style>
+        :root {
+            --font-heading: "Playfair Display", "Poppins", serif;
+            --font-body: "Montserrat", Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --bg: #fff7fb;
+            --surface: #ffffff;
+            --accent: #7b2d6d;
+            /* deep plum */
+            --accent-2: #f6c6d8;
+            /* blush */
+            --muted: #6b6b76;
+            --card: linear-gradient(180deg, #ffffff, #fff6fa);
+            --radius: 16px;
+            --max-width: 1100px;
+            --nav-height: 68px;
+            color-scheme: light;
+            font-family: var(--font-body);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, var(--bg) 0%, #fff0f8 100%);
+            color: #0f172a;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.45;
+            padding-bottom: 60px;
+            font-family: var(--font-body);
+            font-weight: 400;
+        }
+
+        /* Headings */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        h1 {
+            font-size: clamp(28px, 4vw, 44px)
+        }
+
+        h2 {
+            font-size: clamp(20px, 3vw, 28px)
+        }
+
+        /* Header/Nav */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            height: var(--nav-height);
+            backdrop-filter: blur(6px);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-wrap {
+            width: 100%;
+            max-width: var(--max-width);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, rgba(123, 45, 109, 0.12), rgba(246, 198, 216, 0.06));
+            color: var(--accent);
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .logo img {
+            border-radius: 10px;
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        nav {
+            margin-left: auto
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 14px;
+            align-items: center
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 8px
+        }
+
+        .nav-links a:hover {
+            color: #0f172a;
+            background: rgba(123, 45, 109, 0.06)
+        }
+
+        .cta {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            color: #fff;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            text-decoration: none
+        }
+
+        .menu-toggle {
+            display: none;
+            background: #fff5f9;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            color: var(--accent);
+            padding: 8px 12px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .mobile-menu {
+            position: absolute;
+            top: var(--nav-height);
+            left: 0;
+            width: 100%;
+            background: #fff;
+            border-radius: 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            padding: 14px;
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            animation: fadeIn .2s ease;
+            z-index: 70;
+        }
+
+        .mobile-menu a {
+            padding: 14px 16px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #0f172a;
+            text-decoration: none;
+            width: 100%;
+            display: block
+        }
+
+        .mobile-menu a:hover {
+            background: #fff6fb
+        }
+
+        .mobile-menu.open {
+            display: flex
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @media (max-width:900px) {
+            .nav-links {
+                display: none
+            }
+
+            .menu-toggle {
+                display: inline-flex
+            }
+        }
+
+        main {
+            max-width: var(--max-width);
+            margin: 28px auto;
+            padding: 0 20px
+        }
+
+        /* HERO */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 28px;
+            align-items: center
+        }
+
+        .hero-card {
+            background: var(--card);
+            padding: 36px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(123, 45, 109, 0.06);
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 13px
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 0 0 18px
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 12px
+        }
+
+        .hero-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .sample-card {
+            border-radius: 12px;
+            padding: 16px;
+            background: #fff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .sample-thumb {
+            width: 88px;
+            height: 64px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #ffeef8, #ffe0f4);
+            display: grid;
+            place-items: center;
+            color: var(--accent);
+            font-weight: 700
+        }
+
+        /* SERVICES */
+        .service-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), #fffafc);
+            border-radius: 14px;
+            border: 1px solid rgba(15, 23, 42, 0.02);
+            box-shadow: 0 10px 30px rgba(14, 20, 30, 0.04);
+            overflow: hidden;
+            transition: transform .22s cubic-bezier(.2, .9, .2, 1), box-shadow .22s;
+        }
+
+        .service-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 36px rgba(14, 20, 30, 0.06)
+        }
+
+        .svc-image {
+            width: 100%;
+            height: 220px;
+            flex: 0 0 auto;
+            display: block;
+            background: #fff0f6;
+            overflow: hidden
+        }
+
+        .svc-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+
+        .svc-content {
+            padding: 0 18px 18px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-align: left
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(123, 45, 109, 0.08);
+            color: var(--accent);
+            padding: 6px 8px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 12px
+        }
+
+        .svc-cta {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            color: white;
+            padding: 8px 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700
+        }
+
+        /* Other services tag list */
+        .service-tags {
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, #fff, #fff9fb);
+            border: 1px solid rgba(123, 45, 109, 0.04);
+            box-shadow: 0 8px 24px rgba(18, 24, 33, 0.03)
+        }
+
+        .service-tags h3 {
+            margin: 0 0 12px 0;
+            font-size: 18px;
+            font-family: var(--font-heading);
+            color: var(--accent);
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(123, 45, 109, 0.06), rgba(246, 198, 216, 0.04));
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid rgba(123, 45, 109, 0.06);
+            cursor: default;
+            user-select: none;
+            transition: transform .14s ease, box-shadow .14s ease;
+            white-space: nowrap
+        }
+
+        .tag:focus {
+            outline: none;
+            box-shadow: 0 6px 18px rgba(123, 45, 109, 0.12);
+            transform: translateY(-3px)
+        }
+
+        .tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(123, 45, 109, 0.08)
+        }
+
+        .tag.hidden {
+            display: none !important
+        }
+
+        .tags-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            padding: 8px 12px;
+            background: transparent;
+            border: 1px solid rgba(123, 45, 109, 0.08);
+            color: var(--accent);
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .tags-toggle:focus {
+            outline: none;
+            box-shadow: 0 6px 18px rgba(123, 45, 109, 0.12)
+        }
+
+        /* Products grid (now placed above portfolio) */
+        .products {
+            margin-top: 18px;
+            padding: 18px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, #fff, #fff9fb);
+            border: 1px solid rgba(123, 45, 109, 0.04);
+            box-shadow: 0 8px 24px rgba(18, 24, 33, 0.03)
+        }
+
+        .products h3 {
+            margin: 0 0 12px 0;
+            font-size: 18px;
+            font-family: var(--font-heading);
+            color: var(--accent);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin-top: 12px
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(123, 45, 109, 0.04)
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px
+        }
+
+        .product-title {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 15px
+        }
+
+        .product-price {
+            color: var(--accent);
+            font-weight: 800;
+            margin-top: 4px
+        }
+
+        .product-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(123, 45, 109, 0.08);
+            color: var(--accent);
+            padding: 8px 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        /* Product modal overlay and content */
+        .product-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px
+        }
+
+        .product-modal.open {
+            display: flex
+        }
+
+        /* centered content container with padding and max-height so it doesn't touch top/bottom */
+        .product-modal-content {
+            width: 100%;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 12px;
+            padding: 18px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(2, 6, 23, 0.45);
+            max-height: calc(100vh - 80px);
+            /* prevents touching top/bottom */
+            overflow: auto;
+            /* scroll when content is long */
+        }
+
+        .product-modal-content h3.modal-title {
+            margin: 0 0 12px 0;
+            font-size: 20px;
+            color: var(--accent);
+        }
+
+        .pm-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #fff;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            border: 0;
+            cursor: pointer;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06)
+        }
+
+        /* modal inner card: image + body */
+        .product-modal-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .product-modal-card .pm-img {
+            background-size: cover;
+            background-position: center;
+            min-height: 320px;
+            border-radius: 8px
+        }
+
+        .product-modal-card .pm-body {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pm-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: #0f172a
+        }
+
+        .pm-specs {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .pm-details {
+            margin-top: 6px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        @media(max-width:900px) {
+            .product-modal-card {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Portfolio & rest left unchanged */
+        .portfolio-grid {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px
+        }
+
+        .project {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 120px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 0;
+            background: #fff3f9
+        }
+
+        .proj-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            aspect-ratio: 16/9;
+            transition: transform .28s ease
+        }
+
+        .project:hover .proj-img {
+            transform: scale(1.03)
+        }
+
+        .project .label {
+            position: absolute;
+            left: 9px;
+            bottom: 9px;
+            z-index: 3;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.82));
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 13px;
+            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.06);
+            color: #0f172a;
+        }
+
+        /* Lightbox (gallery) kept as before */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 120;
+            padding: 28px
+        }
+
+        .lightbox.open {
+            display: flex
+        }
+
+        .lightbox-content {
+            max-width: 700px;
+            width: 100%;
+            background: #fff;
+            border-radius: 12px;
+            padding: 18px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(2, 6, 23, 0.45)
+        }
+
+        .lb-img {
+            width: 100%;
+            height: 60vh;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center
+        }
+
+        .lb-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            padding: 0;
+            border: 0;
+            cursor: pointer;
+            color: #0f172a;
+            z-index: 130
+        }
+
+        .testimonials {
+            padding: 18px;
+            padding-bottom: 60px;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+            position: relative
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 260px;
+            border: 0;
+            display: block
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 18px;
+            margin-top: 24px
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 36px;
+            color: var(--muted);
+            font-size: 14px
+        }
+    </style>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="description"
+        content="JMAX Beauty Salon — hair services, professional makeup, manicures and skincare." />
+</head>
+
+<body>
+    <header>
+        <div class="nav-wrap">
+            <div class="brand">
+                <div class="logo" aria-hidden="true">
+                    <img src="https://picsum.photos/seed/salonlogo/48/48" loading="lazy" decoding="async" width="48"
+                        height="48" alt="JMAX logo">
+                </div>
+                <div>
+                    <div style="font-size:16px;font-weight:800">JMAX</div>
+                    <div style="font-size:11px;color:var(--muted);font-weight:600">Beauty • Hair • Makeup</div>
+                </div>
+            </div>
+
+            <nav>
+                <div class="nav-links" role="navigation" aria-label="Main navigation">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#contact">Contact</a>
+                </div>
+
+                <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+
+            <button class="menu-toggle" aria-label="Open menu" title="Menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="home" class="hero" aria-labelledby="home-title">
+            <div class="hero-card">
+                <div class="eyebrow">Beauty • Hair • Makeup</div>
+                <h1 id="home-title">Glow-ready hair and beauty — feel beautiful, confident</h1>
+                <p class="lead">Professional cuts, color, bridal makeup, manicures and tailored skincare — relaxing
+                    salon experience with experienced stylists.</p>
+                <div class="hero-ctas">
+                    <a class="cta" href="#contact">Book Now</a>
+                    <a class="cta" href="#portfolio"
+                        style="background:transparent;color:var(--accent);border:1px solid rgba(123,45,109,0.08)">View
+                        Portfolio</a>
+                </div>
+                <div style="margin-top:20px;color:var(--muted);font-size:14px">Experienced stylists • Bridal packages •
+                    Clean products</div>
+            </div>
+
+            <aside class="hero-preview" aria-hidden="true">
+                <div class="sample-card">
+                    <div class="sample-thumb">HC</div>
+                    <div>
+                        <div style="font-weight:700">Haircuts</div>
+                        <div style="color:var(--muted);font-size:13px">Precision cuts & styling</div>
+                    </div>
+                </div>
+                <div class="sample-card">
+                    <div class="sample-thumb">CL</div>
+                    <div>
+                        <div style="font-weight:700">Color</div>
+                        <div style="color:var(--muted);font-size:13px">Gloss, balayage & highlights</div>
+                    </div>
+                </div>
+                <div class="sample-card">
+                    <div class="sample-thumb">MU</div>
+                    <div>
+                        <div style="font-weight:700">Makeup</div>
+                        <div style="color:var(--muted);font-size:13px">Bridal & event makeup</div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services" aria-labelledby="services-title" data-aos="fade-up">
+            <h2 id="services-title">Our Services</h2>
+
+            <div class="service-list" role="list">
+                <!-- service items unchanged -->
+                <article class="service-item" role="listitem" aria-labelledby="svc1-title">
+                    <div class="svc-image" aria-hidden="true"><img src="https://picsum.photos/id/1012/1200/800"
+                            loading="lazy" decoding="async" alt="Haircut example"></div>
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc1-title">Haircuts & Styling</h3>
+                            <div class="badge">Signature cuts</div>
+                        </div>
+                        <p class="svc-copy">Precision cuts for every hair type, blowouts and styling for events.</p>
+                        <div class="svc-foot"><a class="svc-cta" href="#contact">Book haircut</a>
+                            <div class="svc-meta">Consultation included</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-item" role="listitem" aria-labelledby="svc2-title">
+                    <div class="svc-image" aria-hidden="true"><img src="https://picsum.photos/id/1021/1200/800"
+                            loading="lazy" decoding="async" alt="Coloring example"></div>
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc2-title">Color & Highlights</h3>
+                            <div class="badge">Balayage experts</div>
+                        </div>
+                        <p class="svc-copy">Custom color, highlights, tone and gloss treatments for healthy shine.</p>
+                        <div class="svc-foot"><a class="svc-cta" href="#contact">Color consultation</a>
+                            <div class="svc-meta">Color-safe products</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-item" role="listitem" aria-labelledby="svc3-title">
+                    <div class="svc-image" aria-hidden="true"><img src="https://picsum.photos/id/1005/1200/800"
+                            loading="lazy" decoding="async" alt="Makeup example"></div>
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc3-title">Makeup & Bridal</h3>
+                            <div class="badge">Event-ready</div>
+                        </div>
+                        <p class="svc-copy">Bridal and occasion makeup, trials and on-site bridal packages.</p>
+                        <div class="svc-foot"><a class="svc-cta" href="#contact">Book makeup</a>
+                            <div class="svc-meta">Bridal trials available</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-item" role="listitem" aria-labelledby="svc4-title">
+                    <div class="svc-image" aria-hidden="true"><img src="https://picsum.photos/id/1018/1200/800"
+                            loading="lazy" decoding="async" alt="Nails example"></div>
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc4-title">Manicure & Pedicure</h3>
+                            <div class="badge">Luxury care</div>
+                        </div>
+                        <p class="svc-copy">Manicures, pedicures, gel polish and nail art performed hygienically.</p>
+                        <div class="svc-foot"><a class="svc-cta" href="#contact">Book nails</a>
+                            <div class="svc-meta">Sanitised equipment</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-item" role="listitem" aria-labelledby="svc5-title">
+                    <div class="svc-image" aria-hidden="true"><img src="https://picsum.photos/id/1006/1200/800"
+                            loading="lazy" decoding="async" alt="Facial example"></div>
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc5-title">Facials & Skincare</h3>
+                            <div class="badge">Glow facials</div>
+                        </div>
+                        <p class="svc-copy">Personalised facials, peels and skincare advice for healthier skin.</p>
+                        <div class="svc-foot"><a class="svc-cta" href="#contact">Book facial</a>
+                            <div class="svc-meta">Custom treatments</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="service-item" role="listitem" aria-labelledby="svc6-title">
+                    <div class="svc-image" aria-hidden="true"><img src="https://picsum.photos/id/1037/1200/800"
+                            loading="lazy" decoding="async" alt="Spa example"></div>
+                    <div class="svc-content">
+                        <div class="svc-title-badge">
+                            <h3 id="svc6-title">Packages & Events</h3>
+                            <div class="badge">Bridal parties</div>
+                        </div>
+                        <p class="svc-copy">Group packages, event styling and on-site team services for weddings and
+                            shoots.</p>
+                        <div class="svc-foot"><a class="svc-cta" href="#contact">Enquire packages</a>
+                            <div class="svc-meta">Tailored quotes</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Other Services tag section -->
+            <div class="service-tags" aria-labelledby="other-services-title">
+                <h3 id="other-services-title">Other services</h3>
+                <p style="margin:0 0 12px;color:var(--muted);font-size:14px">Additional treatments we offer — quick
+                    overview.</p>
+
+                <div class="tags" role="list" aria-label="Additional services list" id="serviceTagsList">
+                    <span class="tag" role="listitem" tabindex="0">Keratin Treatment</span>
+                    <span class="tag" role="listitem" tabindex="0">Hair Extensions</span>
+                    <span class="tag" role="listitem" tabindex="0">Scalp Treatment</span>
+                    <span class="tag" role="listitem" tabindex="0">Olaplex Therapy</span>
+                    <span class="tag" role="listitem" tabindex="0">Color Correction</span>
+                    <span class="tag" role="listitem" tabindex="0">Tinting</span>
+                    <span class="tag" role="listitem" tabindex="0">Brow Shaping</span>
+                    <span class="tag" role="listitem" tabindex="0">Lash Extensions</span>
+                    <span class="tag" role="listitem" tabindex="0">Waxing</span>
+                    <span class="tag" role="listitem" tabindex="0">Threading</span>
+                    <span class="tag" role="listitem" tabindex="0">Makeup Lessons</span>
+                    <span class="tag" role="listitem" tabindex="0">Men's Grooming</span>
+                    <span class="tag" role="listitem" tabindex="0">Kids Cuts</span>
+                    <span class="tag" role="listitem" tabindex="0">Bridal Trials</span>
+                    <span class="tag" role="listitem" tabindex="0">Updos & Styling</span>
+                    <span class="tag" role="listitem" tabindex="0">Express Blowdry</span>
+                    <span class="tag" role="listitem" tabindex="0">Hair Botox</span>
+                    <span class="tag" role="listitem" tabindex="0">Consultation</span>
+                </div>
+
+                <div id="tagsToggleWrapper" aria-hidden="true"></div>
+            </div>
+        </section>
+
+        <!-- PRODUCTS: moved directly above portfolio -->
+        <section id="products" aria-labelledby="products-title" class="products" data-aos="fade-up">
+            <h3 id="products-title">Products</h3>
+            <p style="margin:0;color:var(--muted);font-size:14px">A selection of salon-grade products available to buy.
+            </p>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- product cards: sample data-details contains richer HTML (table + link) -->
+                <div class="product-card" data-title="HydraSmooth Shampoo" data-price="22.00"
+                    data-img="https://picsum.photos/seed/prod1/800/600"
+                    data-details='<div><p>Hydrating shampoo for shine and softness.</p><table style="width:100%;border-collapse:collapse;"><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Volume</th><td style="padding:6px;border-bottom:1px solid #eee">250ml</td></tr><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Key ingredients</th><td style="padding:6px;border-bottom:1px solid #eee">Aloe Vera, Panthenol</td></tr></table><p style="margin-top:8px"><a href="https://example.com/hydrasmooth" target="_blank" rel="noopener">Product page</a></p></div>'>
+                    <img src="https://picsum.photos/seed/prod1/800/600" alt="HydraSmooth Shampoo">
+                    <div class="product-title">HydraSmooth Shampoo</div>
+                    <div class="product-price">$22.00</div>
+                    <div class="product-actions">
+                        <button class="btn-outline view-details" type="button">View details</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="ColorCare Gloss" data-price="30.00"
+                    data-img="https://picsum.photos/seed/prod2/800/600"
+                    data-details='<div><p>Shine-enhancing gloss to protect color.</p><ul><li>150ml</li><li>Vegan</li><li>Adds instant shine</li></ul><p><a href="https://example.com/colorcare" target="_blank" rel="noopener">More info</a></p></div>'>
+                    <img src="https://picsum.photos/seed/prod2/800/600" alt="ColorCare Gloss">
+                    <div class="product-title">ColorCare Gloss</div>
+                    <div class="product-price">$30.00</div>
+                    <div class="product-actions">
+                        <button class="btn-outline view-details" type="button">View details</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="Silk Finish Serum" data-price="18.50"
+                    data-img="https://picsum.photos/seed/prod3/800/600"
+                    data-details='<div><p>Lightweight serum to tame frizz and add shine.</p><p><strong>Details:</strong></p><p>50ml — silicone-free. Provides heat protection up to 220°C.</p></div>'>
+                    <img src="https://picsum.photos/seed/prod3/800/600" alt="Silk Finish Serum">
+                    <div class="product-title">Silk Finish Serum</div>
+                    <div class="product-price">$18.50</div>
+                    <div class="product-actions">
+                        <button class="btn-outline view-details" type="button">View details</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-title="Nourish Mask" data-price="28.00"
+                    data-img="https://picsum.photos/seed/prod4/800/600"
+                    data-details='<div><p>Deep conditioning mask for dry hair.</p><table style="width:100%;border-collapse:collapse;"><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Use</th><td style="padding:6px;border-bottom:1px solid #eee">Weekly</td></tr><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Volume</th><td style="padding:6px;border-bottom:1px solid #eee">200ml</td></tr></table></div>'>
+                    <img src="https://picsum.photos/seed/prod4/800/600" alt="Nourish Mask">
+                    <div class="product-title">Nourish Mask</div>
+                    <div class="product-price">$28.00</div>
+                    <div class="product-actions">
+                        <button class="btn-outline view-details" type="button">View details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO (below products) -->
+        <section id="portfolio" aria-labelledby="portfolio-title">
+            <h2 id="portfolio-title" style="margin-bottom: 0;">Portfolio</h2>
+            <p style="color:var(--muted);margin-top:0px">Recent transformations — click any item to view details.</p>
+            <div class="portfolio-grid">
+                <div class="project" data-title="Balayage — Maple Street"
+                    data-img="url('https://picsum.photos/seed/balayage/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async"
+                        src="https://picsum.photos/seed/balayage/800/540" alt="Balayage example">
+                    <div class="label">Balayage</div>
+                </div>
+                <div class="project" data-title="Bridal Makeup — Lakeside"
+                    data-img="url('https://picsum.photos/seed/bridal/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async"
+                        src="https://picsum.photos/seed/bridal/800/540" alt="Bridal makeup">
+                    <div class="label">Bridal Makeup</div>
+                </div>
+                <div class="project" data-title="Cut & Style — Oak Ave"
+                    data-img="url('https://picsum.photos/seed/style/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/style/800/540"
+                        alt="Cut & style">
+                    <div class="label">Cut & Style</div>
+                </div>
+                <div class="project" data-title="Nail Art — Elm Street"
+                    data-img="url('https://picsum.photos/seed/nails/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/nails/800/540"
+                        alt="Nail art">
+                    <div class="label">Nail Art</div>
+                </div>
+                <div class="project" data-title="Glow Facial — Riverside"
+                    data-img="url('https://picsum.photos/seed/facial/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async"
+                        src="https://picsum.photos/seed/facial/800/540" alt="Facial">
+                    <div class="label">Glow Facial</div>
+                </div>
+                <div class="project" data-title="Event Styling — Green Lane"
+                    data-img="url('https://picsum.photos/seed/event/1400/900')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/event/800/540"
+                        alt="Event styling">
+                    <div class="label">Event Styling</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIGHTBOX (unchanged) -->
+        <div class="lightbox" id="lightbox" role="dialog" aria-hidden="true" aria-label="Project preview">
+            <div class="lightbox-content" role="document">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                    <div style="font-weight:700" id="lb-title">Project</div>
+                </div>
+                <button class="lb-close" id="lb-close" aria-label="Close">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="lb-img" id="lb-img"
+                    style="margin-top:20px;background-size:cover;background-position:center"></div>
+                <div class="lb-meta">
+                    <div style="color:var(--muted);font-size:13px">High-resolution photos and before/after shots
+                        available on request — professional stylists and friendly service.</div>
+                    <div class="lb-nav" style="display:flex;gap:8px">
+                        <button class="icon-btn lb-nav-btn" id="prev" aria-label="Previous project"><svg
+                                viewBox="0 0 24 24">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg></button>
+                        <button class="icon-btn lb-nav-btn" id="next" aria-label="Next project"><svg
+                                viewBox="0 0 24 24">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TESTIMONIALS -->
+        <section id="testimonials" aria-labelledby="testimonials-title" style="margin-top:30px">
+            <h2 id="testimonials-title">Reviews</h2>
+            <div class="testimonials">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                    <div style="color:var(--muted)">What clients say about JMAX</div>
+                    <div style="color:var(--muted);font-size:13px">Skilled stylists • Relaxing salon</div>
+                </div>
+                <div class="test-slider" id="test-slider">
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <div style="font-weight:700">Love my color</div>
+                        <div style="color:var(--muted);margin-top:8px;font-size:15px;">“The balayage turned out better
+                            than I imagined — so professional.” <br> — <strong>Emma T.</strong></div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars">★★★★★</div>
+                        <div style="font-weight:700">Bridal perfection</div>
+                        <div style="color:var(--muted);margin-top:8px;font-size:15px;">“Bridal hair and makeup was
+                            flawless and stayed all day.” <br> — <strong>Rita M.</strong></div>
+                    </div>
+                    <div class="test-card">
+                        <div class="stars">★★★★☆</div>
+                        <div style="font-weight:700">Relaxing facial</div>
+                        <div style="color:var(--muted);margin-top:8px;font-size:15px;">“Lovely spa-like facial — skin
+                            felt amazing afterwards.” <br> — <strong>Liam D.</strong></div>
+                    </div>
+                </div>
+                <div class="test-nav" aria-hidden="false">
+                    <button class="icon-btn" id="test-prev" aria-label="Previous testimonial"><svg viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <button class="icon-btn" id="test-next" aria-label="Next testimonial"><svg viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- YOUTUBE VIDEOS (kept where you added them) -->
+        <section id="videos" aria-labelledby="videos-title" style="margin-top:20px">
+            <h2 id="videos-title">Videos</h2>
+            <p style="color:var(--muted);margin-top:0">Watch tutorials and highlights from our stylists.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-top:12px">
+                <div style="aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden">
+                    <iframe class="map-frame" loading="lazy" data-src="https://www.youtube.com/embed/kXYiU_JCYtU"
+                        src="about:blank" title="Video 1" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div style="aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden">
+                    <iframe class="map-frame" loading="lazy" data-src="https://www.youtube.com/embed/VbfpW0pbvaU"
+                        src="about:blank" title="Video 2" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div style="aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden">
+                    <iframe class="map-frame" loading="lazy" data-src="https://www.youtube.com/embed/3JZ_D3ELwOQ"
+                        src="about:blank" title="Video 3" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCATIONS -->
+        <section id="locations" aria-labelledby="locations-title" class="locations" style="margin-top:24px">
+            <h2 id="locations-title" style="margin-bottom: 0;">Find Us</h2>
+            <div class="map-grid">
+                <div class="map-card" role="region" aria-label="Salon location">
+                    <div class="map-inner">
+                        <iframe class="map-frame" loading="lazy"
+                            data-src="https://www.google.com/maps?q=40.73061,-73.935242&z=14&output=embed"
+                            src="about:blank" title="Salon map"></iframe>
+                        <div class="map-body"><strong>Main Salon</strong>
+                            <div>12 Rosewood Avenue<br />Cityville, ST 12345</div><a class="map-link"
+                                href="https://www.google.com/maps/search/?api=1&query=40.73061,-73.935242"
+                                target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                            <div class="map-note">Open: Tue–Sun, 09:00 — 18:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-card" role="region" aria-label="Studio location">
+                    <div class="map-inner">
+                        <iframe class="map-frame" loading="lazy"
+                            data-src="https://www.google.com/maps?q=40.72228,-73.99856&z=14&output=embed"
+                            src="about:blank" title="Studio map"></iframe>
+                        <div class="map-body"><strong>Private Studio</strong>
+                            <div>8 Blossom Street<br />Cityville, ST 12345</div><a class="map-link"
+                                href="https://www.google.com/maps/search/?api=1&query=40.72228,-73.99856"
+                                target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                            <div class="map-note">By appointment only</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" aria-labelledby="contact-title" style="margin-top:28px">
+            <h2 id="contact-title">Contact & Bookings</h2>
+            <div class="contact">
+                <div>
+                    <p style="color:var(--muted)">Want to book an appointment or request a bridal package? Use the form
+                        or contact us directly.</p>
+                    <div class="contact-cards" role="list">
+                        <div class="contact-method" role="listitem" aria-label="Email hello@jmax.example">
+                            <img class="icon-img" src="https://picsum.photos/seed/mail/56/56" loading="lazy"
+                                decoding="async" alt="email icon">
+                            <div class="contact-body">
+                                <h3>Email</h3><a class="contact-link"
+                                    href="mailto:hello@jmax.example">hello@jmax.example</a>
+                            </div>
+                        </div>
+                        <div class="contact-method" role="listitem" aria-label="Phone +1 (234) 567-890">
+                            <img class="icon-img" src="https://picsum.photos/seed/phone/56/56" loading="lazy"
+                                decoding="async" alt="phone icon">
+                            <div class="contact-body">
+                                <h3>Phone</h3><a class="contact-link" href="tel:+1234567890">+1 (234) 567-890</a>
+                            </div>
+                        </div>
+                        <div class="contact-method" role="listitem" aria-labelledby="instagram-contact">
+                            <img class="icon-img" src="https://picsum.photos/seed/instagram/56/56" loading="lazy"
+                                decoding="async" alt="instagram icon">
+                            <div class="contact-body">
+                                <h3 id="instagram-contact">Instagram</h3><a class="contact-link"
+                                    href="https://www.instagram.com/jmax" target="_blank"
+                                    rel="noopener noreferrer">instagram.com/jmax</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="contact-card" aria-labelledby="aside-quote-title">
+                    <div id="aside-quote-title" style="font-weight:700">Request Appointment</div>
+                    <div style="color:var(--muted);margin-top:8px;font-size:15px;">Tell us which service you'd like,
+                        preferred dates and any notes — we'll follow up with availability and pricing.</div>
+
+                    <form id="contactForm" style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+                        <input id="name" name="name" placeholder="Your name"
+                            style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);" required>
+                        <input id="email" name="email" type="email" placeholder="Email"
+                            style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);" required>
+                        <input id="service" name="service" placeholder="Desired service (e.g., balayage, bridal)"
+                            style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);">
+                        <textarea id="message" name="message" placeholder="Preferred dates, notes, location" rows="4"
+                            style="padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);resize:none;"
+                            required></textarea>
+                        <div style="display:flex;gap:10px;align-items:center">
+                            <button id="sendBtn" type="submit" class="cta">Send Request</button>
+                            <div id="sendMsg" style="color:var(--muted);font-size:13px"></div>
+                        </div>
+                    </form>
+                </aside>
+            </div>
+        </section>
+
+        <footer>
+            © <span id="year"></span> JMAX — Look good, feel good.
+        </footer>
+    </main>
+
+    <!-- Product modal: overlay -> content container (with padding), close button inside -->
+    <div class="product-modal" id="productModal" role="dialog" aria-hidden="true" aria-labelledby="pm-title">
+        <div class="product-modal-content" role="document" aria-modal="true">
+            <button class="pm-close" id="pmClose" aria-label="Close product details">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+
+            <h3 class="modal-title">Product details</h3>
+
+            <div class="product-modal-card">
+                <div class="pm-img" id="pmImg" style="background-image:url('');"></div>
+                <div class="pm-body">
+                    <div>
+                        <div id="pm-title" class="pm-title" style="font-size:18px;font-weight:800;color:var(--accent)">
+                        </div>
+                        <div id="pm-price" class="pm-price"></div>
+                    </div>
+
+                    <div id="pm-desc" class="pm-specs" aria-live="polite"></div>
+
+                    <!-- details area accepts arbitrary HTML from data-details -->
+                    <div id="pm-details" class="pm-details"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Minimal AOS stub if not loaded; no-op if AOS exists on the page
+        if (window.AOS && typeof AOS.init === 'function') { AOS.init(); }
+
+        (function () {
+            // Mobile menu wiring
+            const menuBtn = document.querySelector('.menu-toggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            function setMenuOpen(isOpen) {
+                if (!mobileMenu || !menuBtn) return;
+                mobileMenu.classList.toggle('open', isOpen);
+                mobileMenu.setAttribute('aria-hidden', String(!isOpen));
+                menuBtn.setAttribute('aria-expanded', String(isOpen));
+                document.body.style.overflow = isOpen ? 'hidden' : '';
+            }
+            if (menuBtn) menuBtn.addEventListener('click', () => { setMenuOpen(!mobileMenu.classList.contains('open')); });
+            if (mobileMenu) Array.from(mobileMenu.querySelectorAll('a')).forEach(a => a.addEventListener('click', () => setMenuOpen(false)));
+            const BREAKPOINT = 900;
+            function onResizeCloseMenu() { if (window.innerWidth > BREAKPOINT && mobileMenu.classList.contains('open')) setMenuOpen(false); }
+            window.addEventListener('resize', onResizeCloseMenu);
+            window.addEventListener('orientationchange', onResizeCloseMenu);
+            document.addEventListener('DOMContentLoaded', onResizeCloseMenu);
+
+            // Portfolio lightbox (unchanged)
+            const projects = Array.from(document.querySelectorAll('.project'));
+            const lb = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lb-img');
+            const lbTitle = document.getElementById('lb-title');
+            let currentIndex = 0;
+            function openLightbox(idx) {
+                const el = projects[idx];
+                if (!el) return;
+                const title = el.getAttribute('data-title') || 'Project';
+                const img = el.getAttribute('data-img') || "url('')";
+                lbTitle.textContent = title;
+                lbImg.style.backgroundImage = img;
+                lb.classList.add('open');
+                lb.setAttribute('aria-hidden', 'false');
+                currentIndex = idx;
+                document.body.style.overflow = 'hidden';
+            }
+            function closeLightbox() { lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+            projects.forEach((p, i) => p.addEventListener('click', () => openLightbox(i)));
+            const lbClose = document.getElementById('lb-close');
+            if (lbClose) lbClose.addEventListener('click', closeLightbox);
+            if (lb) lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
+            const prevBtn = document.getElementById('prev');
+            const nextBtn = document.getElementById('next');
+            if (prevBtn) prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + projects.length) % projects.length; openLightbox(currentIndex); });
+            if (nextBtn) nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % projects.length; openLightbox(currentIndex); });
+            document.addEventListener('keydown', (e) => { if (lb.classList.contains('open')) { if (e.key === 'Escape') closeLightbox(); if (e.key === 'ArrowLeft') prevBtn && prevBtn.click(); if (e.key === 'ArrowRight') nextBtn && nextBtn.click(); } });
+
+            // Testimonials simple slider (unchanged)
+            const slider = document.getElementById('test-slider');
+            const btnNext = document.getElementById('test-next');
+            const btnPrev = document.getElementById('test-prev');
+            let slidePos = 0;
+            function updateSlideWidth() { const child = slider && slider.children[0]; if (!child) return 0; const rect = child.getBoundingClientRect(); return Math.round(rect.width) + 12; }
+            function scrollToSlide(pos) { const width = updateSlideWidth(); slider && slider.scrollTo({ left: width * pos, behavior: 'smooth' }); }
+            if (btnNext) btnNext.addEventListener('click', () => { const count = slider.children.length; slidePos = (slidePos + 1) % count; scrollToSlide(slidePos); });
+            if (btnPrev) btnPrev.addEventListener('click', () => { const count = slider.children.length; slidePos = (slidePos - 1 + count) % count; scrollToSlide(slidePos); });
+            let scrollTimeout;
+            slider && slider.addEventListener('scroll', () => { clearTimeout(scrollTimeout); scrollTimeout = setTimeout(() => { const width = updateSlideWidth(); if (width === 0) return; const approx = Math.round(slider.scrollLeft / width); slidePos = Math.max(0, Math.min(slider.children.length - 1, approx)); }, 80); });
+
+            // Lazy-load iframes (maps + youtube)
+            const lazyFrames = Array.from(document.querySelectorAll('iframe[data-src]'));
+            if ('IntersectionObserver' in window && lazyFrames.length) {
+                const io = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            const el = e.target;
+                            el.src = el.dataset.src;
+                            obs.unobserve(el);
+                        }
+                    });
+                }, { rootMargin: '300px' });
+                lazyFrames.forEach(f => io.observe(f));
+            } else {
+                lazyFrames.forEach(f => f.src = f.dataset.src);
+            }
+
+            // Fill year
+            const yearEl = document.getElementById('year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            // keyboard focus hint for accessibility
+            document.addEventListener('keydown', (e) => { if (e.key === 'Tab') document.body.classList.add('show-focus-styles'); });
+
+            // Tags toggle (unchanged)
+            (function initTagsToggle() {
+                const MAX_VISIBLE = 8;
+                const tagsContainer = document.getElementById('serviceTagsList');
+                const toggleWrapper = document.getElementById('tagsToggleWrapper');
+                if (!tagsContainer || !toggleWrapper) return;
+                const tags = Array.from(tagsContainer.querySelectorAll('.tag'));
+                if (tags.length <= MAX_VISIBLE) { toggleWrapper.setAttribute('aria-hidden', 'true'); return; }
+                const hiddenTags = tags.slice(MAX_VISIBLE);
+                hiddenTags.forEach(t => { t.classList.add('hidden'); t.setAttribute('aria-hidden', 'true'); t.setAttribute('data-hidden-by-toggle', 'true'); t.setAttribute('tabindex', '-1'); });
+                const hiddenCount = hiddenTags.length;
+                const btn = document.createElement('button');
+                btn.type = 'button'; btn.className = 'tags-toggle'; btn.id = 'toggleTagsBtn';
+                btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-controls', 'serviceTagsList');
+                btn.textContent = `Show more (${hiddenCount})`;
+                toggleWrapper.appendChild(btn);
+                toggleWrapper.setAttribute('aria-hidden', 'false');
+                let expanded = false;
+                btn.addEventListener('click', () => {
+                    expanded = !expanded;
+                    btn.setAttribute('aria-expanded', String(expanded));
+                    if (expanded) {
+                        hiddenTags.forEach(t => { t.classList.remove('hidden'); t.removeAttribute('aria-hidden'); t.setAttribute('tabindex', '0'); });
+                        btn.textContent = 'Show less';
+                    } else {
+                        hiddenTags.forEach(t => { t.classList.add('hidden'); t.setAttribute('aria-hidden', 'true'); t.setAttribute('tabindex', '-1'); });
+                        btn.textContent = `Show more (${hiddenCount})`;
+                        btn.focus();
+                    }
+                });
+                btn.addEventListener('keydown', (e) => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); btn.click(); } });
+            })();
+
+            // Products: modal wiring (updated per your request)
+            (function initProducts() {
+                const productButtons = Array.from(document.querySelectorAll('.product-card .view-details'));
+                const modal = document.getElementById('productModal');
+                const pmTitle = document.getElementById('pm-title');
+                const pmPrice = document.getElementById('pm-price');
+                const pmImg = document.getElementById('pmImg');
+                const pmDesc = document.getElementById('pm-desc');
+                const pmDetails = document.getElementById('pm-details');
+                const pmClose = document.getElementById('pmClose');
+
+                if (!modal) return;
+
+                function openModalFromCard(card) {
+                    const title = card.getAttribute('data-title') || '';
+                    const price = card.getAttribute('data-price') || '';
+                    const img = card.getAttribute('data-img') || '';
+                    const desc = card.getAttribute('data-desc') || '';
+                    const detailsHTML = card.getAttribute('data-details') || ''; // arbitrary HTML allowed
+
+                    pmTitle.textContent = title;
+                    pmPrice.textContent = price ? `$${parseFloat(price).toFixed(2)}` : '';
+                    pmImg.style.backgroundImage = img ? `url('${img}')` : '';
+                    pmDesc.textContent = desc || '';
+                    // set details area innerHTML (allows table, links, lists, etc.)
+                    pmDetails.innerHTML = detailsHTML || '';
+
+                    modal.classList.add('open');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.style.overflow = 'hidden';
+                    // move keyboard focus to close button for accessibility
+                    pmClose.focus();
+                }
+
+                productButtons.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const card = e.target.closest('.product-card');
+                        if (!card) return;
+                        openModalFromCard(card);
+                    });
+                });
+
+                function closeModal() {
+                    modal.classList.remove('open');
+                    modal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                }
+
+                // close handlers
+                pmClose.addEventListener('click', closeModal);
+                modal.addEventListener('click', (e) => {
+                    // close only when clicking overlay, not when clicking inside content
+                    if (e.target === modal) closeModal();
+                });
+
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal.classList.contains('open')) {
+                        closeModal();
+                    }
+                });
+
+            })();
+
+        })();
+    </script>
+    <script>
+        // small helper for AOS if you want to re-init after DOM changes
+        if (window.AOS && typeof window.AOS.refresh === 'function') { window.AOS.refresh(); }
+        // Set current year fallback (in case script order differs)
+        document.getElementById('year') && (document.getElementById('year').textContent = new Date().getFullYear());
+    </script>
+</body>
+
+</html>

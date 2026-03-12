@@ -3,7 +3,8 @@
     --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --bg: #f8fafc;
     --surface: #ffffff;
-    --accent: #1ab309;
+    /* --accent: #1ab309; */
+    --accent: #ea1b1b;
     --muted: #64748b;
     --card: linear-gradient(180deg, #ffffff, #f1f5f9);
     --radius: 16px;
@@ -131,7 +132,7 @@ nav {
     padding: 10px 14px;
     border-radius: 10px;
     /* background: linear-gradient(90deg, var(--accent), #ff8f5b); */
-    background: linear-gradient(90deg, var(--accent), #52f246);
+    background: linear-gradient(90deg, var(--accent), #f25e5e);
     color: #fff;
     font-weight: 700;
     border: none;
@@ -369,7 +370,7 @@ p.lead {
 }
 
 .svc-cta {
-    background: linear-gradient(90deg, var(--accent), #52f246);
+    background: linear-gradient(90deg, var(--accent), #f25e5e);
     color: white;
     padding: 8px 12px;
     border-radius: 10px;
@@ -544,7 +545,9 @@ p.lead {
     border-radius: 8px;
     font-weight: 700;
     font-family: var(--font-body);
-    cursor: pointer
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
 }
 
 /* Product modal overlay and content */

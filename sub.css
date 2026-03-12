@@ -1220,26 +1220,3 @@ footer {
         grid-template-columns: 1fr
     }
 }
-
-/* small styling for the table in modal */
-.pm-spec-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 8px;
-}
-
-.pm-spec-table th,
-.pm-spec-table td {
-    text-align: left;
-    padding: 6px 8px;
-    border-bottom: 1px solid #eee;
-    vertical-align: top;
-}
-
-.pm-unnamed-list {
-    margin: 6px 0 0 18px;
-}
-
-.pm-get-wrap {
-    margin-top: 12px;
-}

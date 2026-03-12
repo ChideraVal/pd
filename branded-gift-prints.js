@@ -1,20 +1,7 @@
 (function () {
     // ====== Config: REPLACE with your real Formspree endpoint ======
-    // Example: const FORMSPREE_ENDPOINT = 'https://formspree.io/f/abcdxyz';
     const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdaqpjr'; // <-- replace this
-    // =============================================================
-
-    // mobile menu
-    // const menuBtn = document.querySelector('.menu-toggle');
-    // const mobileMenu = document.getElementById('mobileMenu');
-    // if (menuBtn) menuBtn.addEventListener('click', () => {
-    //     mobileMenu.classList.toggle('open');
-    //     mobileMenu.setAttribute('aria-hidden', !mobileMenu.classList.contains('open'));
-    // });
-    // mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-    //     mobileMenu.classList.remove('open');
-    //     mobileMenu.setAttribute('aria-hidden', 'true');
-    // }));
+    const WHATSAPP_NUMBER = '09062011444'; // used for Get links (wa.me)
 
     // Mobile menu toggle + auto-close on resize
     const menuBtn = document.querySelector('.menu-toggle');
@@ -25,9 +12,7 @@
         mobileMenu.classList.toggle('open', isOpen);
         mobileMenu.setAttribute('aria-hidden', String(!isOpen));
         menuBtn.setAttribute('aria-expanded', String(isOpen));
-        // swap icon
         menuBtn.textContent = isOpen ? '✕' : '☰';
-        // trap body scroll when open
         document.body.style.overflow = isOpen ? 'hidden' : '';
     }
 
@@ -38,22 +23,16 @@
         });
     }
 
-    // --- NEW: close mobile menu when any mobile link is clicked ---
     if (mobileMenu) {
         const mobileLinks = Array.from(mobileMenu.querySelectorAll('a[href^="#"], a'));
         mobileLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Close the menu immediately
+            link.addEventListener('click', () => {
                 setMenuOpen(false);
-
-                // If the link is an in-page anchor, allow default navigation (closing happens instantly).
-                // If the link navigates away (external), closing the menu is still useful but the page will unload.
-                // No need to preventDefault here.
             });
         });
     }
 
-    const BREAKPOINT = 900; // match your CSS breakpoint
+    const BREAKPOINT = 900;
     function onResizeCloseMenu() {
         if (window.innerWidth > BREAKPOINT && mobileMenu.classList.contains('open')) {
             setMenuOpen(false);
@@ -63,14 +42,82 @@
     window.addEventListener('orientationchange', onResizeCloseMenu);
     document.addEventListener('DOMContentLoaded', onResizeCloseMenu);
 
-    // ===== Portfolio lightbox (unchanged functionality) =====
-    const projects = Array.from(document.querySelectorAll('.project'));
+    // ===== Portfolio paging: show only first N cards on the page, keep rest in DOM for lightbox navigation =====
+    (function initPortfolioPaging() {
+        const VISIBLE = 8; // number of cards visible on the page by default
+        const grid = document.querySelector('.portfolio-grid');
+        const controls = document.getElementById('portfolioControls');
+        if (!grid || !controls) return;
+
+        const allProjects = Array.from(grid.querySelectorAll('.project'));
+        if (allProjects.length <= VISIBLE) {
+            controls.setAttribute('aria-hidden', 'true');
+            return;
+        }
+
+        const extras = allProjects.slice(VISIBLE);
+        extras.forEach(el => {
+            el.classList.add('extra');
+            el.setAttribute('aria-hidden', 'true');
+            el.setAttribute('data-hidden-by-toggle', 'true');
+        });
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.id = 'showAllProjects';
+        btn.className = 'tags-toggle';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-controls', 'portfolio');
+        btn.textContent = `Show all (${extras.length})`;
+        btn.style.fontWeight = '700';
+        btn.style.padding = '8px 12px';
+        controls.appendChild(btn);
+        controls.setAttribute('aria-hidden', 'false');
+
+        let expanded = false;
+        btn.addEventListener('click', () => {
+            expanded = !expanded;
+            btn.setAttribute('aria-expanded', String(expanded));
+            if (expanded) {
+                extras.forEach(e => {
+                    e.classList.remove('extra');
+                    e.removeAttribute('aria-hidden');
+                    e.removeAttribute('data-hidden-by-toggle');
+                });
+                btn.textContent = 'Show less';
+                extras[0] && extras[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                extras.forEach(e => {
+                    e.classList.add('extra');
+                    e.setAttribute('aria-hidden', 'true');
+                    e.setAttribute('data-hidden-by-toggle', 'true');
+                });
+                btn.textContent = `Show all (${extras.length})`;
+                btn.focus();
+            }
+        });
+
+        btn.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                btn.click();
+            }
+        });
+    })();
+
+    // ===== Portfolio lightbox (unchanged functionality except re-querying projects when needed) =====
+    let projects = Array.from(document.querySelectorAll('.project'));
     const lb = document.getElementById('lightbox');
     const lbImg = document.getElementById('lb-img');
     const lbTitle = document.getElementById('lb-title');
     let currentIndex = 0;
 
+    function refreshProjects() {
+        projects = Array.from(document.querySelectorAll('.project'));
+    }
+
     function openLightbox(idx) {
+        refreshProjects();
         const el = projects[idx];
         if (!el) return;
         const title = el.getAttribute('data-title') || 'Project';
@@ -87,7 +134,18 @@
         lb.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
     }
-    projects.forEach((p, i) => p.addEventListener('click', () => openLightbox(i)));
+
+    document.addEventListener('click', (e) => {
+        // Projects are clickable blocks; find the nearest .project
+        const projectEl = e.target.closest && e.target.closest('.project');
+        if (projectEl) {
+            // compute index
+            refreshProjects();
+            const idx = projects.indexOf(projectEl);
+            if (idx >= 0) openLightbox(idx);
+        }
+    });
+
     const lbClose = document.getElementById('lb-close');
     if (lbClose) lbClose.addEventListener('click', closeLightbox);
     if (lb) lb.addEventListener('click', (e) => { if (e.target === lb) closeLightbox(); });
@@ -96,12 +154,14 @@
     const nextBtn = document.getElementById('next');
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
+            refreshProjects();
             currentIndex = (currentIndex - 1 + projects.length) % projects.length;
             openLightbox(currentIndex);
         });
     }
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
+            refreshProjects();
             currentIndex = (currentIndex + 1) % projects.length;
             openLightbox(currentIndex);
         });
@@ -156,7 +216,6 @@
         }, { rootMargin: '300px' });
         lazyFrames.forEach(f => io.observe(f));
     } else {
-        // fallback: set all iframe src
         lazyFrames.forEach(f => f.src = f.dataset.src);
     }
 
@@ -198,7 +257,6 @@
         msgEl.style.color = '';
         msgEl.textContent = 'Sending...';
 
-        // If FORMSPREE_ENDPOINT is still the placeholder, fallback to mailto
         if (FORMSPREE_ENDPOINT.includes('yourFormId') || FORMSPREE_ENDPOINT.trim() === '') {
             openMailtoFallback(name, email, message);
             msgEl.textContent = 'Opening your mail client to send request...';
@@ -238,22 +296,18 @@
         if (!tagsContainer || !toggleWrapper) return;
         const tags = Array.from(tagsContainer.querySelectorAll('.tag'));
         if (tags.length <= MAX_VISIBLE) {
-            // nothing to do; ensure wrapper hidden for accessibility
             toggleWrapper.setAttribute('aria-hidden', 'true');
             return;
         }
 
-        // hide tags beyond MAX_VISIBLE
         const hiddenTags = tags.slice(MAX_VISIBLE);
         hiddenTags.forEach(t => {
             t.classList.add('hidden');
             t.setAttribute('aria-hidden', 'true');
             t.setAttribute('data-hidden-by-toggle', 'true');
-            // remove from tab order when hidden
             t.setAttribute('tabindex', '-1');
         });
 
-        // create toggle button
         const hiddenCount = hiddenTags.length;
         const btn = document.createElement('button');
         btn.type = 'button';
@@ -263,38 +317,31 @@
         btn.setAttribute('aria-controls', 'serviceTagsList');
         btn.textContent = `Show more (${hiddenCount})`;
 
-        // insert button into wrapper and make it visible to screen readers
         toggleWrapper.appendChild(btn);
         toggleWrapper.setAttribute('aria-hidden', 'false');
 
-        // Toggle handler
         let expanded = false;
         btn.addEventListener('click', () => {
             expanded = !expanded;
             btn.setAttribute('aria-expanded', String(expanded));
             if (expanded) {
-                // show hidden tags
                 hiddenTags.forEach(t => {
                     t.classList.remove('hidden');
                     t.removeAttribute('aria-hidden');
-                    // restore keyboard focusability
                     t.setAttribute('tabindex', '0');
                 });
                 btn.textContent = 'Show less';
             } else {
-                // hide again
                 hiddenTags.forEach(t => {
                     t.classList.add('hidden');
                     t.setAttribute('aria-hidden', 'true');
                     t.setAttribute('tabindex', '-1');
                 });
                 btn.textContent = `Show more (${hiddenCount})`;
-                // move focus back to the button after collapse for accessibility
                 btn.focus();
             }
         });
 
-        // allow keyboard users to toggle with Enter/Space
         btn.addEventListener('keydown', (e) => {
             if (e.key === ' ' || e.key === 'Enter') {
                 e.preventDefault();
@@ -303,4 +350,161 @@
         });
     })();
     // ===== end tags toggle =====
+
+    // ===== Products: modal wiring + Get links + structured description building =====
+    (function initProducts() {
+        const productCards = Array.from(document.querySelectorAll('.product-card'));
+        const modal = document.getElementById('productModal');
+        const pmTitle = document.getElementById('pm-title');
+        const pmPrice = document.getElementById('pm-price');
+        const pmImg = document.getElementById('pmImg');
+        const pmDesc = document.getElementById('pm-desc');
+        const pmDetails = document.getElementById('pm-details');
+        const pmClose = document.getElementById('pmClose');
+        const pmGetLink = document.getElementById('pmGetLink');
+
+        if (!modal) return;
+
+        // helper to build whatsapp link
+        function whatsappHref(message) {
+            const text = encodeURIComponent(message || '');
+            return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+        }
+
+        // Build in-grid Get links (update href to include product title)
+        productCards.forEach(card => {
+            const title = card.getAttribute('data-title') || '';
+            const getAnchor = card.querySelector('.get-link');
+            const defaultMessage = `Hi, I'm interested in ${title}`;
+            if (getAnchor) {
+                getAnchor.href = whatsappHref(defaultMessage);
+                getAnchor.setAttribute('target', '_blank');
+                getAnchor.setAttribute('rel', 'noopener noreferrer');
+            } else {
+                // create if missing
+                const actions = card.querySelector('.product-actions');
+                if (actions) {
+                    const a = document.createElement('a');
+                    a.className = 'btn-outline get-link';
+                    a.href = whatsappHref(defaultMessage);
+                    a.setAttribute('target', '_blank');
+                    a.setAttribute('rel', 'noopener noreferrer');
+                    a.textContent = 'Get';
+                    actions.appendChild(a);
+                }
+            }
+        });
+
+        function buildDetailsHtml(card) {
+            // summary
+            const summary = card.getAttribute('data-summary') || '';
+            // unnamed features separated by ||
+            const unnamedRaw = card.getAttribute('data-unnamed') || '';
+            const unnamed = unnamedRaw ? unnamedRaw.split('||').map(s => s.trim()).filter(Boolean) : [];
+
+            // named features pairs like Key:Value separated by ||
+            const namedRaw = card.getAttribute('data-named') || '';
+            const named = [];
+            if (namedRaw) {
+                namedRaw.split('||').forEach(pair => {
+                    const idx = pair.indexOf(':');
+                    if (idx > -1) {
+                        const key = pair.slice(0, idx).trim();
+                        const val = pair.slice(idx + 1).trim();
+                        if (key) named.push({ key, val });
+                    }
+                });
+            }
+
+            // Build HTML
+            let html = '';
+            if (summary) {
+                html += `<p>${summary}</p>`;
+            }
+
+            if (unnamed.length) {
+                html += `<ul class="pm-unnamed-list">`;
+                unnamed.forEach(it => {
+                    html += `<li>${it}</li>`;
+                });
+                html += `</ul>`;
+            }
+
+            if (named.length) {
+                html += `<table class="pm-spec-table" aria-hidden="false">`;
+                named.forEach(row => {
+                    html += `<tr><th style="width:36%">${row.key}</th><td>${row.val}</td></tr>`;
+                });
+                html += `</table>`;
+            }
+
+            return { html, namedCount: named.length, unnamedCount: unnamed.length };
+        }
+
+        function openModalFromCard(card) {
+            const title = card.getAttribute('data-title') || '';
+            const price = card.getAttribute('data-price') || '';
+            const img = card.getAttribute('data-img') || '';
+            const details = buildDetailsHtml(card);
+
+            pmTitle.textContent = title;
+            pmPrice.textContent = price ? `$${parseFloat(price).toFixed(2)}` : '';
+            pmImg.style.backgroundImage = img ? `url('${img}')` : '';
+            pmDesc.innerHTML = ''; // keep summary in pmDesc if you prefer; we included summary in details HTML
+            pmDetails.innerHTML = details.html || '';
+
+            // update modal Get link with prefilled message referencing product title
+            const msg = `Hi, I'm interested in ${title}. Could you provide price and availability?`;
+            if (pmGetLink) {
+                pmGetLink.href = whatsappHref(msg);
+                pmGetLink.setAttribute('target', '_blank');
+                pmGetLink.setAttribute('rel', 'noopener noreferrer');
+            }
+
+            modal.classList.add('open');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            // move keyboard focus to close button for accessibility
+            pmClose.focus();
+        }
+
+        // Click handlers for "View details" buttons
+        productCards.forEach(card => {
+            const viewBtn = card.querySelector('.view-details');
+            if (viewBtn) {
+                viewBtn.addEventListener('click', (e) => {
+                    const c = e.target.closest('.product-card');
+                    if (!c) return;
+                    openModalFromCard(c);
+                });
+            } else {
+                // If there's no view button, allow clicking the card to open modal
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.get-link')) return; // avoid when clicking Get
+                    openModalFromCard(card);
+                });
+            }
+        });
+
+        function closeModal() {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        // close handlers
+        pmClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('open')) {
+                closeModal();
+            }
+        });
+
+    })();
+    // ===== end product modal js =====
+
 })();

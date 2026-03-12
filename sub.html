@@ -5,10 +5,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Brandedgift Prints — Modern Print & Design Solutions</title>
-    <link rel="stylesheet" href="branded-gift-prints.css">
+    <link rel="stylesheet" href="sub.css">
     <!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
     <meta name="description"
         content="Print, Design & Signage Company — printing, large-format signage, branding, vehicle wraps, banners, and more." />
+
+    <!-- AOS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> -->
 
     <!-- Google Fonts: preconnect + load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,11 +64,12 @@
         <div class="nav-wrap">
             <div class="brand">
                 <div class="logo" aria-hidden="true">
-                    <img src="https://picsum.photos/seed/printer/45/45" loading="lazy" decoding="async" width="45" height="45"
+                    <img src="images/printer.png" loading="lazy" decoding="async" width="45" height="45"
                         alt="Retail facade signage example">
                 </div>
                 <div>
                     <div style="font-size:18px;font-weight:800">BRANDEDGIFT PRINTS</div>
+                    <!-- <div style="font-size:11px;color:var(--muted);font-weight:600">Print • Design • Signs</div> -->
                 </div>
             </div>
 
@@ -146,7 +151,8 @@
             <div class="service-list" role="list">
                 <article class="service-item" role="listitem" aria-labelledby="svc1-title">
                     <div class="svc-image" aria-hidden="true" style="aspect-ratio: 3/2; overflow: hidden;">
-                        <img src="https://picsum.photos/seed/8018/1200/800" loading="lazy" decoding="async" alt="Retail facade signage example">
+                        <!-- responsive image -->
+                        <img src="images/8018.jpg" loading="lazy" decoding="async" alt="Retail facade signage example">
                     </div>
 
                     <div class="svc-content">
@@ -167,7 +173,7 @@
 
                 <article class="service-item" role="listitem" aria-labelledby="svc2-title">
                     <div class="svc-image" aria-hidden="true" style="aspect-ratio: 3/2; overflow: hidden;">
-                        <img src="https://picsum.photos/seed/lowangle/1200/800" loading="lazy" decoding="async"
+                        <img src="images/low-angle-open-sign.jpg" loading="lazy" decoding="async"
                             alt="Conference backdrop example">
                     </div>
 
@@ -189,7 +195,7 @@
 
                 <article class="service-item" role="listitem" aria-labelledby="svc3-title">
                     <div class="svc-image" aria-hidden="true" style="aspect-ratio: 3/2; overflow: hidden;">
-                        <img src="https://picsum.photos/seed/vehiclewrap/1200/800" loading="lazy" decoding="async" alt="Vehicle wrap example">
+                        <img src="images/vehicle-wrap.jpg" loading="lazy" decoding="async" alt="Vehicle wrap example">
                     </div>
 
                     <div class="svc-content">
@@ -210,7 +216,7 @@
 
                 <article class="service-item" role="listitem" aria-labelledby="svc4-title">
                     <div class="svc-image" aria-hidden="true" style="aspect-ratio: 3/2; overflow: hidden;">
-                        <img src="https://picsum.photos/seed/logodesign/1200/800" loading="lazy" decoding="async"
+                        <img src="images/logo-design.jpg" loading="lazy" decoding="async"
                             alt="Branding and identity example">
                     </div>
 
@@ -232,7 +238,7 @@
 
                 <article class="service-item" role="listitem" aria-labelledby="svc5-title">
                     <div class="svc-image" aria-hidden="true" style="aspect-ratio: 3/2; overflow: hidden;">
-                        <img src="https://picsum.photos/seed/windowfloor/1200/800" loading="lazy"
+                        <img src="images/fresh-air-cool-breeze-holiday-vacation-relaxation.jpg" loading="lazy"
                             decoding="async" alt="Window & floor graphics example">
                     </div>
 
@@ -254,7 +260,7 @@
 
                 <article class="service-item" role="listitem" aria-labelledby="svc6-title">
                     <div class="svc-image" aria-hidden="true" style="aspect-ratio: 3/2; overflow: hidden;">
-                        <img src="https://picsum.photos/seed/sitesurvey/1200/800" loading="lazy" decoding="async"
+                        <img src="images/site-survey.jpg" loading="lazy" decoding="async"
                             alt="Installation & site survey example">
                     </div>
 
@@ -321,78 +327,63 @@
 
         <!-- PRODUCTS: moved directly above portfolio -->
         <section id="products" aria-labelledby="products-title" class="products" data-aos="fade-up">
-            <h2 id="portfolio-title" style="margin-bottom: 0;">Featured Products</h2>
+            <!-- <h3 id="products-title">Products</h3>
+            <p style="margin:0;color:var(--muted);font-size:14px">A selection of salon-grade products available to buy.
+            </p> -->
+
+            <h2 id="products-title" style="margin-bottom: 0;">Featured Products</h2>
             <p style="color:var(--muted);margin-top:0px">A selection of salon-grade products available to buy.</p>
 
             <div class="products-grid" id="productsGrid">
-                <!-- product cards use structured attributes:
-                     data-summary: short summary paragraph
-                     data-unnamed: unnamed features, separated by || (will become list items)
-                     data-named: named features as pairs Key:Value separated by || (will become table rows)
-                     data-img: modal image URL
-                -->
-                <div class="product-card"
-                     data-title="HydraSmooth Shampoo"
-                     data-price="22.00"
-                     data-img="https://picsum.photos/seed/hydra/800/600"
-                     data-summary="Hydrating shampoo formulated to restore shine and softness to dry hair."
-                     data-unnamed="Sulfate-free||Color-safe||Lightweight foam"
-                     data-named="Volume:250ml||Key ingredients:Aloe Vera, Panthenol">
-                    <img src="https://picsum.photos/seed/hydra-thumb/600/400" alt="HydraSmooth Shampoo">
+                <!-- product cards: sample data-details contains richer HTML (table + link) -->
+                <div class="product-card" data-title="HydraSmooth Shampoo" data-price="22.00"
+                    data-img="images/logo-design.jpg"
+                    data-details='<div><p>Hydrating shampoo for shine and softness.</p><table style="width:100%;border-collapse:collapse;"><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Volume</th><td style="padding:6px;border-bottom:1px solid #eee">250ml</td></tr><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Key ingredients</th><td style="padding:6px;border-bottom:1px solid #eee">Aloe Vera, Panthenol</td></tr></table><p style="margin-top:8px"><a href="https://example.com/hydrasmooth" target="_blank" rel="noopener">Product page</a></p></div>'>
+                    <img src="images/logo-design.jpg" alt="HydraSmooth Shampoo">
                     <div class="product-title">HydraSmooth Shampoo</div>
                     <div class="product-price">$22.00</div>
                     <div class="product-actions">
                         <button class="btn-outline view-details" type="button">View details</button>
-                        <!-- Get link inserted by JS if you prefer it added dynamically; we also include a placeholder anchor -->
-                        <a class="btn-outline get-link" href="https://wa.me/09062011444" target="_blank" rel="noopener noreferrer">Get</a>
                     </div>
                 </div>
 
-                <div class="product-card"
-                     data-title="ColorCare Gloss"
-                     data-price="30.00"
-                     data-img="https://picsum.photos/seed/colorcare/800/600"
-                     data-summary="A gloss treatment that boosts shine and protects hair color between salon visits."
-                     data-unnamed="Quick-apply||Adds instant shine||Non-greasy"
-                     data-named="Volume:150ml||Vegan:Yes">
-                    <img src="https://picsum.photos/seed/colorcare-thumb/600/400" alt="ColorCare Gloss">
+                <div class="product-card" data-title="ColorCare Gloss" data-price="30.00"
+                    data-img="images/retail-facade.png"
+                    data-details='<div><p>Shine-enhancing gloss to protect color.</p><ul><li>150ml</li><li>Vegan</li><li>Adds instant shine</li></ul><p><a href="https://example.com/colorcare" target="_blank" rel="noopener">More info</a></p></div>'>
+                    <img src="images/retail-facade.png" alt="ColorCare Gloss">
                     <div class="product-title">ColorCare Gloss</div>
                     <div class="product-price">$30.00</div>
                     <div class="product-actions">
                         <button class="btn-outline view-details" type="button">View details</button>
-                        <a class="btn-outline get-link" href="https://wa.me/09062011444" target="_blank" rel="noopener noreferrer">Get</a>
                     </div>
                 </div>
 
-                <div class="product-card"
-                     data-title="Silk Finish Serum"
-                     data-price="18.50"
-                     data-img="https://picsum.photos/seed/silkfinish/800/600"
-                     data-summary="Lightweight anti-frizz serum that tames flyaways and adds a silky finish."
-                     data-unnamed="Non-sticky||Quick-absorbing||Heat protection"
-                     data-named="Volume:50ml||Protection up to:220°C">
-                    <img src="https://picsum.photos/seed/silkfinish-thumb/600/400" alt="Silk Finish Serum">
+                <div class="product-card" data-title="Silk Finish Serum" data-price="18.50"
+                    data-img="images/exhibit-booth.png"
+                    data-details='<div><p>Lightweight serum to tame frizz and add shine.</p><p><strong>Details:</strong></p><p>50ml — silicone-free. Provides heat protection up to 220°C.</p></div>'>
+                    <img src="images/exhibit-booth.png" alt="Silk Finish Serum">
                     <div class="product-title">Silk Finish Serum</div>
                     <div class="product-price">$18.50</div>
                     <div class="product-actions">
                         <button class="btn-outline view-details" type="button">View details</button>
-                        <a class="btn-outline get-link" href="https://wa.me/09062011444" target="_blank" rel="noopener noreferrer">Get</a>
                     </div>
                 </div>
 
-                <div class="product-card"
-                     data-title="Nourish Mask"
-                     data-price="28.00"
-                     data-img="https://picsum.photos/seed/nourishmask/800/600"
-                     data-summary="A deep conditioning mask for dry or damaged hair to restore moisture and elasticity."
-                     data-unnamed="Intense hydration||Rinse-out mask||Salon-grade"
-                     data-named="Use:Weekly||Volume:200ml">
-                    <img src="https://picsum.photos/seed/nourishmask-thumb/600/400" alt="Nourish Mask">
+                <div class="product-card" data-title="Nourish Mask" data-price="28.00"
+                    data-img="images/floor-graphics.png"
+                    data-details='<div><p>Deep conditioning mask for dry hair.</p><table style="width:100%;border-collapse:collapse;"><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Use</th><td style="padding:6px;border-bottom:1px solid #eee">Weekly</td></tr><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Volume</th><td style="padding:6px;border-bottom:1px solid #eee">200ml</td></tr>
+                    <tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Use</th><td style="padding:6px;border-bottom:1px solid #eee">Weekly</td></tr><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Volume</th><td style="padding:6px;border-bottom:1px solid #eee">200ml</td></tr>
+                    <tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Use</th><td style="padding:6px;border-bottom:1px solid #eee">Weekly</td></tr><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Volume</th><td style="padding:6px;border-bottom:1px solid #eee">200ml</td></tr>
+                    <tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Use</th><td style="padding:6px;border-bottom:1px solid #eee">Weekly</td></tr><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Volume</th><td style="padding:6px;border-bottom:1px solid #eee">200ml</td></tr>
+                    <tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Use</th><td style="padding:6px;border-bottom:1px solid #eee">Weekly</td></tr><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Volume</th><td style="padding:6px;border-bottom:1px solid #eee">200ml</td></tr>
+                    <tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Use</th><td style="padding:6px;border-bottom:1px solid #eee">Weekly</td></tr><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Volume</th><td style="padding:6px;border-bottom:1px solid #eee">200ml</td></tr>
+                    <tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Use</th><td style="padding:6px;border-bottom:1px solid #eee">Weekly</td></tr><tr><th style="text-align:left;padding:6px;border-bottom:1px solid #eee">Volume</th><td style="padding:6px;border-bottom:1px solid #eee">200ml</td></tr>
+                    </table></div>'>
+                    <img src="images/floor-graphics.png" alt="Nourish Mask">
                     <div class="product-title">Nourish Mask</div>
                     <div class="product-price">$28.00</div>
                     <div class="product-actions">
                         <button class="btn-outline view-details" type="button">View details</button>
-                        <a class="btn-outline get-link" href="https://wa.me/09062011444" target="_blank" rel="noopener noreferrer">Get</a>
                     </div>
                 </div>
             </div>
@@ -405,76 +396,76 @@
             <p style="color:var(--muted);margin-top:0px">A selection of recent projects — click any item to view
                 details.</p>
             <div class="portfolio-grid">
-                <div class="project" data-title="Retail Facade — Ocean Mart" data-img="url('https://picsum.photos/seed/retailfacade/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/retailfacade/1200/800"
+                <div class="project" data-title="Retail Facade — Ocean Mart" data-img="url('images/retail-facade.png')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/retail-facade.png"
                         alt="Retail Facade">
                     <div class="label">Retail Facade</div>
                 </div>
 
                 <div class="project" data-title="Conference Backdrop — Tech Summit"
-                    data-img="url('https://picsum.photos/seed/confbackdrop/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/confbackdrop/1200/800"
+                    data-img="url('images/conference-backdrop.png')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/conference-backdrop.png"
                         alt="Conference Backdrop">
                     <div class="label">Conference Backdrop</div>
                 </div>
 
                 <div class="project" data-title="Vehicle Wrap — City Courier"
-                    data-img="url('https://picsum.photos/seed/vehiclewrapdesign/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/vehiclewrapdesign/1200/800"
+                    data-img="url('images/vehicle-wrap-design.png')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/vehicle-wrap-design.png"
                         alt="Vehicle Wrap">
                     <div class="label">Vehicle Wrap</div>
                 </div>
 
                 <div class="project" data-title="Window Display — Boutique"
-                    data-img="url('https://picsum.photos/seed/windowgraphics/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/windowgraphics/1200/800"
+                    data-img="url('images/window-graphics.jpg')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/window-graphics.jpg"
                         alt="Window Display">
                     <div class="label">Window Display</div>
                 </div>
 
-                <div class="project" data-title="Event Signs — Food Fest" data-img="url('https://picsum.photos/seed/eventsigns/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/eventsigns/1200/800"
+                <div class="project" data-title="Event Signs — Food Fest" data-img="url('images/event-signs.jpg')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/event-signs.jpg"
                         alt="Event Signs">
                     <div class="label">Event Signs</div>
                 </div>
 
                 <div class="project" data-title="Exhibit Booth — Startup Expo"
-                    data-img="url('https://picsum.photos/seed/exhibitbooth/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/exhibitbooth/1200/800"
+                    data-img="url('images/exhibit-booth.png')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/exhibit-booth.png"
                         alt="Exhibit Booth">
                     <div class="label">Exhibit Booth</div>
                 </div>
 
-                <div class="project" data-title="Poster Series — Campaign" data-img="url('https://picsum.photos/seed/posterdesign/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/posterdesign/1200/800"
+                <div class="project" data-title="Poster Series — Campaign" data-img="url('images/poster-design.jpg')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/poster-design.jpg"
                         alt="Poster Series">
                     <div class="label">Poster Series</div>
                 </div>
 
-                <div class="project" data-title="Floor Graphics — Mall" data-img="url('https://picsum.photos/seed/floorgraphics/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/floorgraphics/1200/800"
+                <div class="project" data-title="Floor Graphics — Mall" data-img="url('images/floor-graphics.png')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/floor-graphics.png"
                         alt="Floor Graphics">
                     <div class="label">Floor Graphics</div>
                 </div>
 
                 <!-- additional (hidden by default) - examples of more cards -->
-                <div class="project" data-title="Window Wrap — Coffee House" data-img="url('https://picsum.photos/seed/windowwrap1/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/windowwrap1/1200/800" alt="Window Wrap">
+                <div class="project" data-title="Window Wrap — Coffee House" data-img="url('images/event-signs.jpg')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/event-signs.jpg" alt="Window Wrap">
                     <div class="label">Window Wrap</div>
                 </div>
 
-                <div class="project" data-title="Banner — Outdoor Promo" data-img="url('https://picsum.photos/seed/banner1/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/banner1/1200/800" alt="Banner">
+                <div class="project" data-title="Banner — Outdoor Promo" data-img="url('images/exhibit-booth.png')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/exhibit-booth.png" alt="Banner">
                     <div class="label">Outdoor Banner</div>
                 </div>
 
-                <div class="project" data-title="Trade Show Backdrop — Fintech" data-img="url('https://picsum.photos/seed/tradeshow1/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/tradeshow1/1200/800" alt="Trade Show">
+                <div class="project" data-title="Trade Show Backdrop — Fintech" data-img="url('images/poster-design.jpg')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/poster-design.jpg" alt="Trade Show">
                     <div class="label">Trade Show Backdrop</div>
                 </div>
 
-                <div class="project" data-title="POP Display — Retail" data-img="url('https://picsum.photos/seed/pop1/1200/800')">
-                    <img class="proj-img" loading="lazy" decoding="async" src="https://picsum.photos/seed/pop1/1200/800" alt="POP Display">
+                <div class="project" data-title="POP Display — Retail" data-img="url('images/floor-graphics.png')">
+                    <img class="proj-img" loading="lazy" decoding="async" src="images/floor-graphics.png" alt="POP Display">
                     <div class="label">POP Display</div>
                 </div>
             </div>
@@ -661,7 +652,7 @@
 
                     <div class="contact-cards" role="list">
                         <div class="contact-method" role="listitem" aria-label="Email hello@printdesignco.com">
-                            <img class="icon-img" src="https://picsum.photos/seed/gmailicon/56/56" loading="lazy" decoding="async"
+                            <img class="icon-img" src="images/gmail.png" loading="lazy" decoding="async"
                                 alt="email icon">
                             <div class="contact-body">
                                 <h3>Email</h3>
@@ -671,7 +662,7 @@
                         </div>
 
                         <div class="contact-method" role="listitem" aria-label="Phone +1 (234) 567-890">
-                            <img class="icon-img" src="https://picsum.photos/seed/phoneicon/56/56" loading="lazy" decoding="async"
+                            <img class="icon-img" src="images/telephone-call.png" loading="lazy" decoding="async"
                                 alt="phone icon">
                             <div class="contact-body">
                                 <h3>Phone</h3>
@@ -680,8 +671,8 @@
                         </div>
 
                         <div class="contact-method" role="listitem" aria-labelledby="linkedin-contact">
-                            <img class="icon-img" src="https://picsum.photos/seed/instagramicon/56/56" loading="lazy" decoding="async"
-                                alt="linkedin icon">
+                            <img class="icon-img" src="images/instagram.png" loading="lazy" decoding="async"
+                                alt="instagram icon">
                             <div class="contact-body">
                                 <h3 id="linkedin-contact">Instagram</h3>
                                 <a class="contact-link" href="https://www.instagram.com/brandedgiftprints"
@@ -690,8 +681,8 @@
                         </div>
 
                         <div class="contact-method" role="listitem" aria-labelledby="facebook-contact">
-                            <img class="icon-img" src="https://picsum.photos/seed/facebookicon/56/56" loading="lazy" decoding="async"
-                                alt="linkedin icon">
+                            <img class="icon-img" src="images/facebook.png" loading="lazy" decoding="async"
+                                alt="facebook icon">
                             <div class="contact-body">
                                 <h3 id="linkedin-contact">Facebook</h3>
                                 <a class="contact-link" href="https://www.facebook.com/brandedgiftprints"
@@ -700,7 +691,7 @@
                         </div>
 
                         <div class="contact-method" role="listitem" aria-labelledby="whatsapp-contact">
-                            <img class="icon-img" src="https://picsum.photos/seed/whatsappicon/56/56" loading="lazy" decoding="async"
+                            <img class="icon-img" src="images/whatsapp_5968841.png" loading="lazy" decoding="async"
                                 alt="whatsapp icon">
                             <div class="contact-body">
                                 <h3 id="whatsapp-contact">WhatsApp</h3>
@@ -765,19 +756,17 @@
 
                     <div id="pm-desc" class="pm-specs" aria-live="polite"></div>
 
-                    <!-- details area built from data-unnamed and data-named -->
+                    <!-- details area accepts arbitrary HTML from data-details -->
                     <div id="pm-details" class="pm-details"></div>
-
-                    <!-- Get link for modal -->
-                    <div class="pm-get-wrap" id="pm-get-wrap" style="display:block">
-                        <a id="pmGetLink" class="cta" href="https://wa.me/09062011444" target="_blank" rel="noopener noreferrer">Get</a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="branded-gift-prints.js"></script>
+    <!-- <script>
+        AOS.init();
+    </script> -->
+    <script src="index.js"></script>
 </body>
 
 </html>
