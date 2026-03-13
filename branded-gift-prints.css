@@ -544,7 +544,9 @@ p.lead {
     border-radius: 8px;
     font-weight: 700;
     font-family: var(--font-body);
-    cursor: pointer
+    text-decoration: none;
+    font-size: 13px;
+    cursor: pointer;
 }
 
 /* Product modal overlay and content */

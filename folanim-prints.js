@@ -1,7 +1,7 @@
 (function () {
     // ====== Config: REPLACE with your real Formspree endpoint ======
     const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdaqpjr'; // <-- replace this
-    const WHATSAPP_NUMBER = '09062011444'; // used for Get links (wa.me)
+    const WHATSAPP_NUMBER = '09076376746'; // used for Get links (wa.me)
 
     // Mobile menu toggle + auto-close on resize
     const menuBtn = document.querySelector('.menu-toggle');
